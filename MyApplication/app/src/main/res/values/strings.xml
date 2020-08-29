@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="protegt">ProteGT</string>
+    <string name="bienvenido_a">Bienvenido a</string>
+    <string name="empecemos">Empecemos</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="reg_strate">Regístrate</string>
+    <string name="nada">nada?</string>
+    <string name="inicio_de_sesi_n">Inicio de sesión</string>
+    <string name="nombre">Nombre</string>
+    <string name="confirmar_contrase_a">Confirmar contraseña</string>
+    <string name="contrase_as_no_coinciden">Contraseñas no coinciden</string>
+    <string name="activar_el_registro_y_las_notificaciones_de_exposici_n_del_covid_19">Activar el registro y las \nnotificaciones de exposición del COVID-19</string>
+    <string name="para_identificar_si_est_s_en_riesgo_de_infecci_n_y_poder_avisarte_debes_habilitar_estas_opciones">Para identificar si estás en riesgo de infección y poder avisarte, debes habilitar estas opciones.</string>
+    <string name="en_cualquier_momento_podr_s_deshabilitar_estas_opciones">En cualquier momento podrás deshabilitar estas opciones.</string>
+    <string name="protegt_solo_te_mandara_notificaciones_para_tu_segurida_no_se_compartiran_datos_persolanes_ni_de_localizaci_n">ProteGT solo te mandara notificaciones para tu segurida. No se compartiran datos persolanes ni de localización</string>
+    <string name="activar">Activar</string>
 </resources>
