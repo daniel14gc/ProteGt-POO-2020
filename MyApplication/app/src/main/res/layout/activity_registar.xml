@@ -17,15 +17,16 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.895" />
+        app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
+        app:layout_constraintVertical_bias="0.576" />
 
     <EditText
         android:id="@+id/user"
         android:layout_width="316sp"
         android:layout_height="57sp"
-        android:layout_marginTop="208dp"
+        android:layout_marginTop="192dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:inputType="textPersonName"
@@ -41,23 +42,23 @@
         android:id="@+id/password"
         android:layout_width="316sp"
         android:layout_height="57sp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="76dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:inputType="textPassword"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user"
         app:layout_constraintVertical_bias="0.87" />
 
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="316sp"
         android:layout_height="57sp"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="76dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:inputType="textPassword"
@@ -66,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.87" />
 
     <TextView
@@ -77,12 +78,12 @@
         android:text="@string/usuario"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.74" />
 
     <TextView
         android:id="@+id/textView10"
@@ -92,12 +93,12 @@
         android:text="@string/contrase_a"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintVertical_bias="0.792" />
 
     <TextView
         android:id="@+id/textView11"
@@ -107,12 +108,12 @@
         android:text="@string/confirmar_contrase_a"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/confirmPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.249"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.828" />
 
     <TextView
         android:id="@+id/textView6"
@@ -122,12 +123,12 @@
         android:text="Nuevo Usario"
         android:textColor="@color/black"
         android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.581" />
 
     <TextView
         android:id="@+id/error1"
@@ -141,6 +142,18 @@
         app:layout_constraintHorizontal_bias="0.356"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.287" />
+
+    <ImageView
+        android:id="@+id/back2"
+        android:layout_width="32dp"
+        android:layout_height="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.568"
+        app:srcCompat="@drawable/union" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
