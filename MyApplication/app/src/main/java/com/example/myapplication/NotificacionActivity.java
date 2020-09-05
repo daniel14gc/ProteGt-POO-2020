@@ -1,3 +1,12 @@
+/*  ##########################################################
+
+        Este metodo se creo para solicitarle al usuario
+         que permita que la aplicacion pueda utilizar
+                         su ubicacion.
+
+    ########################################################## */
+
+
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;

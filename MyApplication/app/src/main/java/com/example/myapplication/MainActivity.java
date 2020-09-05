@@ -1,3 +1,9 @@
+/*  ####################################################
+
+        Esta clase controla la pantalla de inicio.
+
+    ################################################### */
+
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+        // Si el usuario cliquea el boton de empezar se procede enviandolo a la siguiente layout (Login).
 
         startButton = findViewById(R.id.startBtn);
         startButton.setOnClickListener(new View.OnClickListener() {

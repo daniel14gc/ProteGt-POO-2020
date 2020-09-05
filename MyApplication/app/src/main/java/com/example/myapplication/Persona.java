@@ -1,3 +1,11 @@
+//####################################################################
+
+//  Esta clase almacena la informacion de cada persona, cada persona
+//  se almacena en la clase AlmacenPersonas. Ademas contiene todos
+//      los metodos para crearlo y obtener su informacion.
+
+//####################################################################
+
 package com.example.myapplication;
 
 import android.widget.Button;
@@ -17,17 +25,31 @@ public class Persona {
         status = false;
     }
 
+    // Metodo para obtener el nombre del usuario.
+
     public String getUser(){
         return user;
     }
+
+
+
+    // Metodo para obtener la contrasena del usuario.
 
     public String getPassword(){
         return password;
     }
 
+
+
+    // Metodo para obtener el status del usuario.
+
     public boolean getStatus(){
         return status;
     }
+
+
+
+    // Metodo para editar el status del usuario.
 
     public void setStatus(){
         if (status == false){
