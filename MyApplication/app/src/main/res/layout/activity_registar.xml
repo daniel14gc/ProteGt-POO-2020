@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
 
     <Button
         android:id="@+id/loginBtn2"
@@ -120,7 +121,7 @@
         android:layout_width="314dp"
         android:layout_height="36dp"
         android:fontFamily="@font/bold"
-        android:text="Nuevo Usario"
+        android:text="@string/nuevo_usuario"
         android:textColor="@color/black"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/user"
@@ -146,14 +147,16 @@
 
     <ImageView
         android:id="@+id/back2"
-        android:layout_width="32dp"
+        android:layout_width="45dp"
         android:layout_height="34dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.124"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568"
-        app:srcCompat="@drawable/union" />
+        app:layout_constraintVertical_bias="0.578"
+        app:srcCompat="@drawable/union"
+        android:contentDescription="@string/todo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

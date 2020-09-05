@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+<<<<<<< HEAD
 
         loginButton = findViewById(R.id.loginBtn);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -67,5 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+=======
+>>>>>>> 47b36dd3539aabf367d8882b3693a26aaef69107
     }
 }
