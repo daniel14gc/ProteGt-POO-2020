@@ -39,7 +39,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-<<<<<<< HEAD
 
         loginButton = findViewById(R.id.loginBtn);
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -55,21 +54,19 @@ public class LoginActivity extends AppCompatActivity {
                 else {
 
                     if (d.comparardatos(us, pw)){
-
+                        //llamar a la que toca con inicio exitoso
+                        /*Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                        startActivity(intent);*/
                     }
                     else
                     {
-
+                        error.setText("Contraseña o usuario incorrectos");
+                        error.setVisibility(View.VISIBLE);
                     }
 
                 }
-
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
             }
         });
 
-=======
->>>>>>> 47b36dd3539aabf367d8882b3693a26aaef69107
     }
 }
