@@ -18,4 +18,6 @@
     <string name="protegt_solo_te_mandara_notificaciones_para_tu_segurida_no_se_compartiran_datos_persolanes_ni_de_localizaci_n">ProteGT solo te mandara notificaciones para tu seguridad. No se compartiran datos personales ni de localización.</string>
     <string name="activar">Activar</string>
     <string name="no_deseo_activarlo_ahora">No deseo activarlo ahora</string>
+    <string name="nuevo_usuario">Nuevo Usuario</string>
+    <string name="todo">TODO</string>
 </resources>

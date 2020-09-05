@@ -2,12 +2,16 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+import android.app.Activity;
+>>>>>>> 72025d2d6ee27d2b0dc0be49ad8ceaf7851671e0
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class NotificacionActivity extends AppCompatActivity {
+public class NotificacionActivity extends AppCompatActivity{
 
     Button activarButton;
     @Override
