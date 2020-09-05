@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,9 +27,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
         register = findViewById(R.id.loginBtn2);
-        user =  (EditText) findViewById(R.id.user);
-        password = (EditText) findViewById(R.id.password);
-        confirmPassword = (EditText) findViewById(R.id.confirmPassword);
+        user =  (EditText) findViewById(R.id.user2);
+        password = (EditText) findViewById(R.id.contrasena);
+        confirmPassword = (EditText) findViewById(R.id.conficontrasena);
         error = findViewById(R.id.error1);
         backArrow = findViewById(R.id.back2);
         backArrow.bringToFront();
@@ -54,14 +53,18 @@ public class RegisterActivity extends AppCompatActivity {
                     error.setVisibility(View.VISIBLE);
                 }
                  else {
-                    if(pw.equals(cpw)){
+                    if(pw.equals(cpw)&& !pw.equals(us)){
                         error.setVisibility(View.INVISIBLE);
-                        Intent intent = new Intent(RegisterActivity.this, NotificacionActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, PrivacidadActivity.class);
                         startActivity(intent);
 
                     }
-                    else{
+                    else if (!pw.equals(cpw)){
                         error.setText("Las contraseñas no coinciden");
+                        error.setVisibility(View.VISIBLE);
+                    }
+                    else if (pw.equals(us)) {
+                        error.setText("La contraseña coincide con el usuario");
                         error.setVisibility(View.VISIBLE);
                     }
                  }

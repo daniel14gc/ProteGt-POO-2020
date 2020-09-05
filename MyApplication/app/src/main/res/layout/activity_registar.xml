@@ -17,19 +17,22 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintVertical_bias="0.638" />
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/usera"
         android:layout_width="316sp"
         android:layout_height="57sp"
         android:layout_marginTop="192dp"
         android:background="@drawable/input_field"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:enabled="false"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="none"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,19 +42,48 @@
         app:layout_constraintVertical_bias="0.73" />
 
     <EditText
+        android:id="@+id/user"
+        android:layout_width="245dp"
+        android:layout_height="41dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@android:color/background_light"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/usera"
+        app:layout_constraintEnd_toEndOf="@+id/usera"
+        app:layout_constraintStart_toStartOf="@+id/usera"
+        app:layout_constraintTop_toTopOf="@+id/usera"
+        tools:text="  " />
+
+    <EditText
+        android:id="@+id/user2"
+        android:layout_width="245dp"
+        android:layout_height="41dp"
+        android:background="#00FFFFFF"
+        android:drawableTop="@android:color/background_light"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/usera"
+        app:layout_constraintEnd_toEndOf="@+id/usera"
+        app:layout_constraintStart_toStartOf="@+id/usera"
+        app:layout_constraintTop_toTopOf="@+id/usera"
+        tools:text="  " />
+
+    <EditText
         android:id="@+id/password"
         android:layout_width="316sp"
         android:layout_height="57sp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="88dp"
         android:background="@drawable/input_field"
         android:ems="10"
+        android:enabled="false"
         android:inputType="textPassword"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/usera"
         app:layout_constraintVertical_bias="0.87" />
 
     <EditText
@@ -61,6 +93,7 @@
         android:layout_marginTop="76dp"
         android:background="@drawable/input_field"
         android:ems="10"
+        android:enabled="false"
         android:inputType="textPassword"
         android:text=""
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
@@ -78,7 +111,7 @@
         android:text="@string/usuario"
         android:textColor="@color/gray"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/user"
+        app:layout_constraintBottom_toTopOf="@+id/usera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.179"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +130,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user"
+        app:layout_constraintTop_toBottomOf="@+id/usera"
         app:layout_constraintVertical_bias="0.792" />
 
     <TextView
@@ -123,7 +156,7 @@
         android:text="Nuevo Usario"
         android:textColor="@color/black"
         android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/user"
+        app:layout_constraintBottom_toTopOf="@+id/usera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -139,10 +172,10 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/loginBtn2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintHorizontal_bias="0.372"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmPassword"
-        app:layout_constraintVertical_bias="0.287" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <ImageView
         android:id="@+id/back2"
@@ -155,5 +188,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.568"
         app:srcCompat="@drawable/union" />
+
+    <EditText
+        android:id="@+id/contrasena"
+        android:layout_width="256dp"
+        android:layout_height="47dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toTopOf="@+id/password" />
+
+    <EditText
+        android:id="@+id/conficontrasena"
+        android:layout_width="247dp"
+        android:layout_height="45dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/confirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/confirmPassword"
+        app:layout_constraintStart_toStartOf="@+id/confirmPassword"
+        app:layout_constraintTop_toTopOf="@+id/confirmPassword" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
