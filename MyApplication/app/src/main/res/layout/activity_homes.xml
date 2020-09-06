@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD:MyApplication/app/src/main/res/layout/activity_homes.xml
     tools:context=".Homes"
+=======
+<<<<<<< HEAD
+    tools:context=".home">
+=======
+    tools:context=".home"
+>>>>>>> 254c0b0a017435c2fa0b03771be6ed6d2808c30a
+>>>>>>> 4c074a1169f45bd3404a5bd8a21992e6fe2f72fc:MyApplication/app/src/main/res/layout/activity_home.xml
     android:background="@drawable/background2">
 
     <ImageView
@@ -45,6 +53,8 @@
         app:layout_constraintVertical_bias="0.641"
         app:srcCompat="@drawable/location" />
 
+<<<<<<< HEAD
+=======
     <ImageView
         android:id="@+id/menu"
         android:layout_width="32dp"
@@ -80,4 +90,5 @@
         app:layout_constraintVertical_bias="0.809"
         app:srcCompat="@drawable/button3" />
 
+>>>>>>> 254c0b0a017435c2fa0b03771be6ed6d2808c30a
 </androidx.constraintlayout.widget.ConstraintLayout>
