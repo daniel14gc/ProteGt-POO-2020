@@ -10,7 +10,7 @@ package com.example.myapplication;
 
 public class Driver {
 
-    AlmacenPersonas AlPe = new AlmacenPersonas();
+    static AlmacenPersonas AlPe = new AlmacenPersonas();
 
 
     public Driver(){
@@ -21,7 +21,7 @@ public class Driver {
 
     // Este metodo genera un usuario con la informacion que se le brinde
 
-    public void crearPersona(String n, String p) {
+    public static void crearPersona(String n, String p) {
 
         Persona persona = new Persona(n,p);
 
@@ -34,7 +34,7 @@ public class Driver {
     /* Metodo para comparar los datos brindados por el usuario y el almacen para definir si
        puede loguearse o no.  */
 
-    public boolean comparardatos(String u, String p){
+    public static boolean comparardatos(String u, String p){
 
         for (int i = 0; i < AlPe.getsize(); i++){
             Persona per = AlPe.getUser(i);

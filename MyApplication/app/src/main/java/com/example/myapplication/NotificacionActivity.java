@@ -31,7 +31,7 @@ public class NotificacionActivity extends AppCompatActivity{
         activarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NotificacionActivity.this, home.class);
+                Intent intent = new Intent(NotificacionActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

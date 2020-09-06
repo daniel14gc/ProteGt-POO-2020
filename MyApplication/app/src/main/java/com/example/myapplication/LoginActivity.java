@@ -84,8 +84,8 @@ public class LoginActivity extends AppCompatActivity {
                         // Si se encuentran los datos se procede al siguiente layout.
 
                         //llamar a la que toca con inicio exitoso
-                        /*Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                        startActivity(intent);*/
+                        Intent intent = new Intent(LoginActivity.this, Homes.class);
+                        startActivity(intent);
                     }
                     else {
 
