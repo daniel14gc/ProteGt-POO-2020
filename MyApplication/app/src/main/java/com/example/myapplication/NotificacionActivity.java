@@ -25,16 +25,16 @@ public class NotificacionActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificacion);
-        /*
+
         activarButton = findViewById(R.id.Acept1);
 
         activarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NotificacionActivity.this, PrivacidadActivity.class);
+                Intent intent = new Intent(NotificacionActivity.this, home.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
     }
 }
