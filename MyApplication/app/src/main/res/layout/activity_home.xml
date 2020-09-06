@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".home">
+=======
+    tools:context=".home"
+>>>>>>> 254c0b0a017435c2fa0b03771be6ed6d2808c30a
     android:background="@drawable/background2">
 
     <ImageView
@@ -45,4 +49,42 @@
         app:layout_constraintVertical_bias="0.641"
         app:srcCompat="@drawable/location" />
 
+<<<<<<< HEAD
+=======
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="32dp"
+        android:layout_height="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/menubarra" />
+
+    <ImageView
+        android:id="@+id/departamentos"
+        android:layout_width="43dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.745"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:srcCompat="@drawable/mapagt" />
+
+    <ImageView
+        android:id="@+id/newpost"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.809"
+        app:srcCompat="@drawable/button3" />
+
+>>>>>>> 254c0b0a017435c2fa0b03771be6ed6d2808c30a
 </androidx.constraintlayout.widget.ConstraintLayout>
