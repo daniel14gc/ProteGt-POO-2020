@@ -9,11 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
-        <activity android:name=".Homes"></activity>
-=======
-        <activity android:name=".home"></activity>
->>>>>>> 4c074a1169f45bd3404a5bd8a21992e6fe2f72fc
+
         <activity android:name=".PrivacidadActivity" />
         <activity android:name=".NotificacionActivity" />
         <activity android:name=".RegisterActivity" />
