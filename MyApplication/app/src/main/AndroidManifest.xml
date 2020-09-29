@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Publica"></activity>
         <activity android:name=".Homes" />
         <activity android:name=".PrivacidadActivity" />
         <activity android:name=".NotificacionActivity" />
