@@ -16,10 +16,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-<<<<<<< HEAD
-=======
-public class Homes extends Activity {
->>>>>>> 2bd7301fffafbee0915bbf4f1de8cc6017704dca
+
 
 public class Homes extends AppCompatActivity {
     ImageView newpost;

@@ -19,14 +19,14 @@
         app:srcCompat="@drawable/background2" />
 
     <Button
-        android:id="@+id/acept"
+        android:id="@+id/publicar"
         android:layout_width="191dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="64dp"
         android:background="@drawable/button1"
         android:fontFamily="@font/regular"
-        android:text="@string/activar"
+        android:text="Publicar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -137,7 +137,7 @@
         app:layout_constraintVertical_bias="0.359" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/new_com"
         android:layout_width="330dp"
         android:layout_height="207dp"
         android:background="#FFFFFF"
@@ -149,5 +149,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.708" />
+
+    <CheckBox
+        android:id="@+id/anonimo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anonimamante"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.861" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
