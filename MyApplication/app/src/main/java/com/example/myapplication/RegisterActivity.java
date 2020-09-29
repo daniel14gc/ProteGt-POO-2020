@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class RegisterActivity extends AppCompatActivity{
+public class RegisterActivity extends Activity{
 
     Driver driver = new Driver();
 
@@ -91,7 +91,13 @@ public class RegisterActivity extends AppCompatActivity{
 
                         // Generar usuario y guardarlo
 
-                        driver.crearPersona(us,pw);
+                        int respuesta = driver.crearPersona(us,pw);
+                        if(respuesta != -1){
+
+                        }
+                        else{
+                            error.setText("El nombre de usuario ya existe. Ingrese un diferente");
+                        }
 
                         // Abrir layout privacidad
 
@@ -110,7 +116,7 @@ public class RegisterActivity extends AppCompatActivity{
                     //Si la contrasena es igual al usuario
 
                     else if (pw.equals(us)) {
-                        error.setText("La contraseña coincide con el usuario");
+                        error.setText("La contraseña es igual al usuario, por seguridad ingrese algo diferente");
                         error.setVisibility(View.VISIBLE);
                     }
                  }

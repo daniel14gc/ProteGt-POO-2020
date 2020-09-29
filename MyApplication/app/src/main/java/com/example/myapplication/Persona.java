@@ -36,6 +36,7 @@ public class Persona {
     // Metodo para obtener la contrasena del usuario.
 
     public String getPassword(){
+
         return password;
     }
 
@@ -44,6 +45,7 @@ public class Persona {
     // Metodo para obtener el status del usuario.
 
     public boolean getStatus(){
+
         return status;
     }
 

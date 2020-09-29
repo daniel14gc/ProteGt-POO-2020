@@ -11,28 +11,34 @@ package com.example.myapplication;
 public class Driver {
 
     static AlmacenPersonas AlPe = new AlmacenPersonas();
-
-
-    public Driver(){
-
-    }
-
-
+    static Database usuarios = new UserDatabase("Users");
+    static Persona persona;
 
     // Este metodo genera un usuario con la informacion que se le brinde
 
-    public static void crearPersona(String n, String p) {
+    public static int crearPersona(String n, String p) {
 
-        Persona persona = new Persona(n,p);
-
-        AlPe.addUser(persona);
+        persona = new Persona(n,p);
+        return addDatabase(persona);
+        //AlPe.addUser(persona);
 
     }
 
+    public static int addDatabase(Persona p){
+        return usuarios.write(p);
+    }
 
+    public static void usuario(){
 
-    /* Metodo para comparar los datos brindados por el usuario y el almacen para definir si
+    }
+
+    public static void enfermo(){
+
+    }
+
+        /* Metodo para comparar los datos brindados por el usuario y el almacen para definir si
        puede loguearse o no.  */
+
 
     public static boolean comparardatos(String u, String p){
 
