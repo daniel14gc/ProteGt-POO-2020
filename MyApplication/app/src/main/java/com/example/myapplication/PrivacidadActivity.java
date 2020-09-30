@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PrivacidadActivity extends Activity {
+public class PrivacidadActivity extends AppCompatActivity {
 
     ImageView cara;
     TextView titulo;
