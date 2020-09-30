@@ -65,20 +65,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
-        android:fontFamily="@font/regular"
-        android:text="Escribe tu comentario"
-        android:textColor="@color/gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
     <EditText
         android:id="@+id/usera3"
         android:layout_width="316sp"
@@ -137,18 +123,24 @@
         app:layout_constraintVertical_bias="0.359" />
 
     <EditText
-        android:id="@+id/new_com"
+        android:id="@+id/com"
         android:layout_width="330dp"
         android:layout_height="207dp"
         android:background="#FFFFFF"
         android:ems="10"
+        android:gravity="start"
+        android:hint="Escribe tu comentario"
         android:inputType="textPersonName"
+        android:text=""
+        android:textAlignment="viewStart"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.708" />
+        app:layout_constraintVertical_bias="0.612" />
 
     <CheckBox
         android:id="@+id/anonimo"

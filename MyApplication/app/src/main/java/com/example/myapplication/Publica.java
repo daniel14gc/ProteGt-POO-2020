@@ -8,6 +8,8 @@ import android.service.autofill.TextValueSanitizer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Publica extends AppCompatActivity {
@@ -33,7 +35,7 @@ public class Publica extends AppCompatActivity {
         donde = findViewById(R.id.new_donde);
         tipo1 = findViewById(R.id.new_infe);
         tipo2 = findViewById(R.id.new_ano);
-        comentario = findViewById(R.id.new_com);
+        comentario = findViewById(R.id.com);
         anonimo = findViewById(R.id.anonimo);
         dn = donde.getText().toString();
         tp = "";
