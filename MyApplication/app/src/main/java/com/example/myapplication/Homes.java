@@ -35,4 +35,12 @@ public class Homes extends AppCompatActivity {
             }
         });
     }
+
+    public void porDepartamento(View view) {
+
+        Intent siguiente = new Intent(this, PorDepartamentoActivity.class);
+        startActivity(siguiente);
+
+    }
+
 }
