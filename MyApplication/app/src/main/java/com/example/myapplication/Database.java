@@ -12,9 +12,10 @@ public class Database extends AppCompatActivity {
 
     FirebaseDatabase database;
     DatabaseReference reference;
-    String tipo;
+    String path;
 
-    public Database(String path){
+    public Database(String p){
+        path=p;
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
         reference = database.getReference(path);
@@ -29,4 +30,8 @@ public class Database extends AppCompatActivity {
         return false;
     }
 
+
+
 }
+
+
