@@ -15,11 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 public class Homes extends AppCompatActivity {
     ImageView newpost;
+    ImageView mini;
+    TextView cerrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,36 @@ public class Homes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Homes.this, Publica.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        mini = findViewById(R.id.menu);
+        final LinearLayout ly = findViewById(R.id.minimenu);
+
+        mini.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (ly.isShown() == true){
+                    ly.setVisibility(View.INVISIBLE);
+                }
+                else{
+                    ly.setVisibility(View.VISIBLE);
+                }
+
+            }
+        });
+
+
+        cerrar = findViewById(R.id.cerrarsesion);
+
+        cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Homes.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

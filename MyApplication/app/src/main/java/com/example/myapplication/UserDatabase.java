@@ -2,6 +2,11 @@ package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class UserDatabase extends Database {
@@ -29,7 +34,7 @@ public class UserDatabase extends Database {
         // minuto 1:45 posible error
         //boolean [] bandera ={};
         checkUser.addListenerForSingleValueEvent(new ValueEventListener(){
-           @override
+           @Override
 
            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
            {
@@ -44,7 +49,7 @@ public class UserDatabase extends Database {
 
                 }
            }
-           @override
+           @Override
            public  void  onCancelled(@NonNull DatabaseError databaseError)
            {
 

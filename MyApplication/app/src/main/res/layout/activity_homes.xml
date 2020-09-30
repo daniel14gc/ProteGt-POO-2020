@@ -90,4 +90,57 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <LinearLayout
+        android:id="@+id/minimenu"
+        android:layout_width="350dp"
+        android:layout_height="118dp"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.867">
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="61dp"
+            android:layout_height="20dp"
+            android:fontFamily="@font/bold"
+            android:text="Usuario" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tengo COVID-19    " />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/cerrarsesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cerrar Sesión"
+                android:textColor="#3F51B5" />
+        </LinearLayout>
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
