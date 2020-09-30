@@ -11,7 +11,7 @@ package com.example.myapplication;
 public class Driver {
 
     static AlmacenPersonas AlPe = new AlmacenPersonas();
-    static Database usuarios = new UserDatabase("Users");
+    static UserDatabase usuarios = new UserDatabase("Users");
     static Persona persona;
 
 
@@ -26,7 +26,7 @@ public class Driver {
     }
 
     public static int addDatabase(Persona p){
-        return usuarios.write(p);
+        return usuarios.add(p);
     }
 
     public static void usuario(){
@@ -42,18 +42,7 @@ public class Driver {
 
 
     public static boolean comparardatos(String u, String p){
-
-        for (int i = 0; i < AlPe.getsize(); i++){
-            Persona per = AlPe.getUser(i);
-            if (per.getUser().equals(u)){
-                if (per.getPassword().equals(p)){
-                    return true;
-                }
-            }
-        }
-
-        return false;
-
+        return usuarios.buscar(p,u);
     }
 
 

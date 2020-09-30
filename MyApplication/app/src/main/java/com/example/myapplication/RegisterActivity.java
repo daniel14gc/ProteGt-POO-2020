@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class RegisterActivity extends Activity{
+public class RegisterActivity extends AppCompatActivity{
 
     Driver driver = new Driver();
 
@@ -93,17 +93,13 @@ public class RegisterActivity extends Activity{
 
                         int respuesta = driver.crearPersona(us,pw);
                         if(respuesta != -1){
-
+                            Intent intent = new Intent(RegisterActivity.this, PrivacidadActivity.class);
+                            startActivity(intent);
                         }
                         else{
-                            error.setText("El nombre de usuario ya existe. Ingrese un diferente");
+                            error.setVisibility(View.VISIBLE);
+                            error.setText("El nombre de usuario ya existe. Ingrese uno diferente.");
                         }
-
-                        // Abrir layout privacidad
-
-                        Intent intent = new Intent(RegisterActivity.this, PrivacidadActivity.class);
-                        startActivity(intent);
-
                     }
 
                     // Si las contrasenas no son iguales:

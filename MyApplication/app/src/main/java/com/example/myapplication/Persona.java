@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 //####################################################################
 
 //  Esta clase almacena la informacion de cada persona, cada persona
@@ -6,7 +8,6 @@
 
 //####################################################################
 
-package com.example.myapplication;
 
 import android.widget.Button;
 import android.widget.EditText;
