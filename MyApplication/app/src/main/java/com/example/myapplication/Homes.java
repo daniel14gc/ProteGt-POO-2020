@@ -7,6 +7,8 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,8 +20,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class Homes extends AppCompatActivity {
+
+    ArrayList<HashMap<String,String>> ListaDatos;
+
+    RecyclerView recycler;
+
     ImageView newpost;
     ImageView mini;
     TextView cerrar;
@@ -27,6 +37,40 @@ public class Homes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homes);
+
+        recycler = findViewById(R.id.ReciclerPub);
+
+        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
+
+
+
+        ListaDatos = new ArrayList<HashMap<String,String>>();
+
+        for (int i = 0; i < 5; i++) {
+
+            HashMap<String,String> l = new HashMap<String, String>();
+
+            l.put("usuario", "ejemplo");
+            l.put("titulo", "Este es un titulo de ejemplo");
+            l.put("descripcion", "Esta es una descripcion de ejemplo que necesita tener más caracteres y quiero decirte comeme beibi");
+
+            ListaDatos.add(l);
+
+        }
+
+        AdapterDatos adapter = new AdapterDatos(ListaDatos);
+
+        recycler.setAdapter(adapter);
+
+
+
+
+
+
+
+
+
+
 
         newpost = findViewById(R.id.newpost);
 
