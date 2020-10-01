@@ -55,15 +55,6 @@ public class Homes extends AppCompatActivity {
             }
         });
 
-        mapa = findViewById(R.id.departamentos);
-
-        mapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MapaCovid();
-            }
-        });
-
 
 
         cerrar = findViewById(R.id.cerrarsesion);
@@ -84,8 +75,5 @@ public class Homes extends AppCompatActivity {
 
     }
 
-    public void MapaCovid(){
-        Intent intent = new Intent(this, Map.class);
-        startActivity(intent);
-    }
+
 }
