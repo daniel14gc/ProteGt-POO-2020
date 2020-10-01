@@ -49,7 +49,7 @@ public class UserDatabase extends Database {
 
     //Metodo que permite comparar un usuario ingresado al hacer el login y definir si existe y la contraseña es correcta.
     public boolean buscar(final String pw, final String usuario){
-
+        respuestas.clear();
         //Se hace la llamada a la base de datos en la tabla especificada.
         Query checkUser = reference.orderByChild("user").equalTo(pw);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener(){
@@ -85,7 +85,7 @@ public class UserDatabase extends Database {
 
     //Metodo que permite buscar un usuario existente para valida el registro.
     private boolean buscar(final String usuario){
-
+        respuestas.clear();
         //Se hace la llamada a la base de datos en la tabla especificada.
         Query checkUser = reference.orderByChild("user").equalTo(usuario);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener(){

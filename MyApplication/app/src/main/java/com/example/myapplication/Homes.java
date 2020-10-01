@@ -8,12 +8,9 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +19,7 @@ import android.widget.TextView;
 public class Homes extends AppCompatActivity {
     ImageView newpost;
     ImageView mini;
+    ImageView mapa;
     TextView cerrar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +55,16 @@ public class Homes extends AppCompatActivity {
             }
         });
 
+        mapa = findViewById(R.id.departamentos);
+
+        mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MapaCovid();
+            }
+        });
+
+
 
         cerrar = findViewById(R.id.cerrarsesion);
 
@@ -76,4 +84,8 @@ public class Homes extends AppCompatActivity {
 
     }
 
+    public void MapaCovid(){
+        Intent intent = new Intent(this, Map.class);
+        startActivity(intent);
+    }
 }
