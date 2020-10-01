@@ -60,16 +60,6 @@ public class Homes extends AppCompatActivity {
 
         recycler.setAdapter(adapter);
 
-
-
-
-
-
-
-
-
-
-
         newpost = findViewById(R.id.newpost);
 
         newpost.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +89,14 @@ public class Homes extends AppCompatActivity {
             }
         });
 
+        mapa = findViewById(R.id.departamentos);
 
+        mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MapaCovid();
+            }
+        });
 
         cerrar = findViewById(R.id.cerrarsesion);
 
@@ -117,6 +114,12 @@ public class Homes extends AppCompatActivity {
         Intent siguiente = new Intent(this, PorDepartamentoActivity.class);
         startActivity(siguiente);
 
+    }
+
+
+    public void MapaCovid(){
+        Intent intent = new Intent(this, Map.class);
+        startActivity(intent);
     }
 
 

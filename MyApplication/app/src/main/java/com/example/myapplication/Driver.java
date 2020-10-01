@@ -12,6 +12,7 @@ public class Driver {
 
     static AlmacenPersonas AlPe = new AlmacenPersonas();
     static UserDatabase usuarios = new UserDatabase("Users");
+    static PostsDatabase posts = new PostsDatabase("Publicaciones");
     static Persona persona;
 
 
@@ -20,26 +21,24 @@ public class Driver {
     public static int crearPersona(String n, String p) {
 
         persona = new Persona(n,p);
-        return addDatabase(persona);
+        return addUser(persona);
         //AlPe.addUser(persona);
 
     }
 
-    public static int addDatabase(Persona p){
+    private static int addUser(Persona p){
         return usuarios.add(p);
     }
 
-    public static void usuario(){
+    public static void nuevaPublicacion(Publicacion p){
+        p.setId(posts.getSize()+1);
+        posts.newPost(p);
 
     }
 
     public static void enfermo(){
 
     }
-
-        /* Metodo para comparar los datos brindados por el usuario y el almacen para definir si
-       puede loguearse o no.  */
-
 
     public static boolean comparardatos(String u, String p){
         return usuarios.buscar(p,u);

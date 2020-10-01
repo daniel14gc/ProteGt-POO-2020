@@ -37,9 +37,7 @@ public class Publica extends AppCompatActivity {
         tipo2 = findViewById(R.id.new_ano);
         comentario = findViewById(R.id.com);
         anonimo = findViewById(R.id.anonimo);
-        dn = donde.getText().toString();
         tp = "";
-        cm = comentario.getText().toString();
 
         tipo1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +66,16 @@ public class Publica extends AppCompatActivity {
         publicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dn = donde.getText().toString();
+                cm = comentario.getText().toString();
                 if(anonim==false){
                     Publicacion p = new Publicacion("admin",dn,tp,cm);
+                    Driver.nuevaPublicacion(p);
                     //en admin hay que poner al usuario
                 }
                 else if(anonim==true){
                     Publicacion p = new Publicacion("anonimo",dn,tp,cm);
+                    Driver.nuevaPublicacion(p);
                 }
                 Intent intent = new Intent(Publica.this, Homes.class);
                 startActivity(intent);

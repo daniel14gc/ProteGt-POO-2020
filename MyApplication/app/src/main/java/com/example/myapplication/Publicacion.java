@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 public class Publicacion {
 
+    private long id;
     private String user;
     private String location;
     private String type;
@@ -35,12 +36,27 @@ public class Publicacion {
     }
 
 
-
-    // Metodo para obtener los datos de la publicacion.
-
-    public String[] getDatos() {
-        String [] temp = {user, location, type, description};
-        return temp;
+    public String getUser() {
+        return user;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
 }
