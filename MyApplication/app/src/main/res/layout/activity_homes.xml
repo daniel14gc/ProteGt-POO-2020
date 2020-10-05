@@ -84,23 +84,25 @@
 
     <LinearLayout
         android:id="@+id/minimenu"
-        android:layout_width="350dp"
-        android:layout_height="118dp"
+        android:layout_width="336dp"
+        android:layout_height="136dp"
+        android:background="@drawable/publicacion_border"
         android:orientation="horizontal"
+        android:padding="22dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.885"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867">
+        app:layout_constraintVertical_bias="0.863">
 
         <TextView
             android:id="@+id/textView31"
             android:layout_width="61dp"
             android:layout_height="20dp"
             android:fontFamily="@font/bold"
-            android:text="Usuario" />
+            android:text="Usuario:" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,15 +110,16 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/getusuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="" />
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/estado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checked="false"
                 android:text="Tengo COVID-19    " />
 
             <TextView

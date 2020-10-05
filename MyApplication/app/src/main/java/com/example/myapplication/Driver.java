@@ -48,4 +48,17 @@ public class Driver {
         }
         return false;
     }
+
+    public static void enfermo(){
+        persona.setStatus();
+        usuarios.modificarestado(persona);
+    }
+
+    public static boolean obtenerestado(){
+        return persona.getStatus();
+    }
+
+    public static boolean verificar(boolean b){
+        return b == persona.getStatus();
+    }
 }

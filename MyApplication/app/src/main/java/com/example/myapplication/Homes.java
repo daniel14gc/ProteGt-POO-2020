@@ -13,8 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,10 +33,15 @@ public class Homes extends AppCompatActivity {
     ImageView mini;
     ImageView mapa;
     TextView cerrar;
+    Switch estado;
+    TextView getuser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homes);
+
+
 
         recycler = findViewById(R.id.ReciclerPub);
 
@@ -70,15 +77,28 @@ public class Homes extends AppCompatActivity {
             }
         });
 
+        estado = findViewById(R.id.estado);
+        estado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (Driver.verificar(!estado.isChecked())){
+                    Driver.enfermo();
+                }
+            }
+        });
+
 
 
         mini = findViewById(R.id.menu);
+        getuser = findViewById(R.id.getusuario);
         final LinearLayout ly = findViewById(R.id.minimenu);
 
+        getuser.setText(Driver.persona.getUser());
         mini.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                estado.setChecked(Driver.obtenerestado());
+                ly.bringToFront();
                 if (ly.isShown() == true){
                     ly.setVisibility(View.INVISIBLE);
                 }

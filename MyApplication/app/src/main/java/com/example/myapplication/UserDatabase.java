@@ -83,4 +83,8 @@ public class UserDatabase extends Database {
         return Size;
     }
 
+    public void modificarestado(Persona p){
+        reference.child(p.getUser()).child("status").setValue(p.getStatus());
+    }
+
 }
