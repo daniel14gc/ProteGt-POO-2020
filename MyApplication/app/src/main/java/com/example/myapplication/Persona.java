@@ -20,10 +20,10 @@ public class Persona {
     private String password;
     private boolean status;
 
-    public Persona(String user, String password){
+    public Persona(String user, String password, boolean status){
         this.user = user;
         this.password = password;
-        status = false;
+        this.status = status;
     }
 
     // Metodo para obtener el nombre del usuario.

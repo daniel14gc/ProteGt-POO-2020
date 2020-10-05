@@ -20,43 +20,18 @@ public class AlmacenPersonas {
         users = new ArrayList<Persona>();
     }
 
-
-    //Metodo que retorna el usuario segun el indice que se indique.
-
-    public Persona getUser(int index) {
-        return users.get(index);
+    public void setUsers(ArrayList<Persona> p){
+        users = p;
     }
 
-
-    //Metodo para agregar un usuario al almacen.
-    public void addUser(Persona p){
-        users.add(p);
-    }
-
-
-    //Metodo que retorna el tamano del arreglo users.
-    public int getsize(){
-        return users.size();
-    }
-
-    public int removeUser(int index){
-
-        //Metodo para eliminar un usuario de la "base de datos".
-
-
-        //Se comprueba si el indice del usuario que se indico existe.
-        if(users.get(index) != null){
-            users.remove(index);
-            return 0;
+    public Persona buscar(String user, String password){
+        for(int i = 0; i<users.size(); i++){
+            Persona temp = users.get(i);
+            if(temp.getUser().equals(user) && temp.getPassword().equals(password)){
+                return temp;
+            }
         }
 
-        else{
-            return -1;
-        }
-    }
-
-    //Metodo para modificar el arreglo users.
-    public void setUser(ArrayList<Persona> users) {
-        this.users = users;
+        return null;
     }
 }

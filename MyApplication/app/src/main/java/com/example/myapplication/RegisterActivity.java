@@ -7,10 +7,9 @@
 
     #############################################################   */
 
-
-
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -22,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 public class RegisterActivity extends AppCompatActivity{
 
@@ -69,6 +69,7 @@ public class RegisterActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
+
                 // Solicitud de informacion a los EditText
 
                 String us = user.getText().toString();
@@ -84,15 +85,14 @@ public class RegisterActivity extends AppCompatActivity{
 
                 // Si todos los EditText NO estan vacios
 
-                 else {
+                else {
 
                     if(pw.equals(cpw)&& !pw.equals(us)){
                         error.setVisibility(View.INVISIBLE);
 
                         // Generar usuario y guardarlo
-
-                        int respuesta = driver.crearPersona(us,pw);
-                        if(respuesta != -1){
+                        int res = Driver.addUser(us,pw);
+                        if(res == 0){
                             Intent intent = new Intent(RegisterActivity.this, PrivacidadActivity.class);
                             startActivity(intent);
                         }
@@ -101,7 +101,6 @@ public class RegisterActivity extends AppCompatActivity{
                             error.setText("El nombre de usuario ya existe. Ingrese uno diferente.");
                         }
                     }
-
                     // Si las contrasenas no son iguales:
 
                     else if (!pw.equals(cpw)){
@@ -115,9 +114,10 @@ public class RegisterActivity extends AppCompatActivity{
                         error.setText("La contraseña es igual al usuario, por seguridad ingrese algo diferente");
                         error.setVisibility(View.VISIBLE);
                     }
-                 }
+                }
 
             }
         });
+        register.performClick();
     }
 }

@@ -9,15 +9,18 @@
 
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.Passwordlogin);
 
         error = findViewById(R.id.errordatos);
+        Driver.buscar("","");
 
         //Cuando se cliquee el boton de registro, se procedera a mover al usuario al Layout de registro.
 
@@ -62,42 +66,30 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String us = user.getText().toString();
                 String pw = password.getText().toString();
-
                 // Se verifica si el usuario ingreso la informacion necesaria.
 
                 if(us.isEmpty()||pw.isEmpty()){
-
+                    Driver.buscar(us,pw);
                     // si NO, se le notifica al usuario que la ingrese.
 
                     error.setText("Llene todos los espacios");
                     error.setVisibility(View.VISIBLE);
                 }
                 else {
-
-                    // Si SI, se comparan los datos con la informacion del almacen.
-
-                    if (d.comparardatos(us, pw)){
-
-                        // Si se encuentran los datos se procede al siguiente layout.
-
-                        //llamar a la que toca con inicio exitoso
+                    if(Driver.buscar(us,pw)){
                         Intent intent = new Intent(LoginActivity.this, Homes.class);
                         startActivity(intent);
                     }
-                    else {
-
-                        //Si NO se encuentran los datos, se le notifica al usuario.
-
-                        error.setText("Contraseña o usuario incorrectos");
+                    else{
+                        error.setText("Usuario o contraseña incorrectos. Inténtelo nuevamente.");
                         error.setVisibility(View.VISIBLE);
                     }
-
                 }
             }
         });
+        loginButton.performClick();
 
     }
 }

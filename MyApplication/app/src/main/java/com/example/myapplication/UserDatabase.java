@@ -1,120 +1,86 @@
 package com.example.myapplication;
 
-/*-------------------------------------
-Proyecto: ProteGt
-Fecha de modificacion: 09-30-2020
-Clase: UserDatabase
-
-Subclase que hereda de database, la cual
-permite conectarse a la tabla que contiene
-los usuarios de la aplicación.
- -------------------------------------*/
+import android.content.Context;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.EventListener;
 
 public class UserDatabase extends Database {
     //Atributo de subclase que permite guardar los datos de usuarios.
-    ArrayList <String> respuestas;
+    private ArrayList<Persona> respuestas;
+    private String aber;
+    private long Size;
 
-    public UserDatabase(String path){
+    public UserDatabase(String path) {
         super(path);
-        respuestas = new ArrayList<String>();
+        respuestas = new ArrayList<Persona>();
+        Size = 0;
+        aber = "";
     }
 
-    public void getUsuario(){
-
-    }
-
-    public void getStatus(){
-
-    }
-
-    public int add(Persona p){ //Metodo que permite añadir un usuario a la base de datos.
-        if(buscar(p.getUser()) == false){
-            reference.child(p.getUser()).setValue(p);
-            return 0;
-        }
-        return -1;
-    }
-
-
-
-    //Metodo que permite comparar un usuario ingresado al hacer el login y definir si existe y la contraseña es correcta.
-    public boolean buscar(final String pw, final String usuario){
-        respuestas.clear();
-        //Se hace la llamada a la base de datos en la tabla especificada.
-        Query checkUser = reference.orderByChild("user").equalTo(pw);
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener(){
-           @Override
-
-           public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-           {
-                if(dataSnapshot.exists())
-                {
-                    //Se obtiene la contraseña y usuario del nombre de usuario ingresado.
-                    String userDB = dataSnapshot.child(usuario).child("user").getValue(String.class);
-                    String passwordDB = dataSnapshot.child(usuario).child("password").getValue(String.class);
-                    if(userDB.equals(usuario) && passwordDB.equals(pw)){
-                        respuestas.add(userDB);
-                    }
-                }
-           }
-           @Override
-           public  void  onCancelled(@NonNull DatabaseError databaseError)
-           {
-
-           }
-
-        });
-        if(respuestas != null){
-            return true;
-        }
-        else{
-            return false;
-        }
+    public void getUsuario() {
 
     }
 
-    //Metodo que permite buscar un usuario existente para valida el registro.
-    private boolean buscar(final String usuario){
-        respuestas.clear();
-        //Se hace la llamada a la base de datos en la tabla especificada.
-        Query checkUser = reference.orderByChild("user").equalTo(usuario);
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener(){
+    public void getStatus() {
+
+    }
+
+    public void add(Persona p) { //Metodo que permite añadir un usuario a la base de datos.
+        reference.child(p.getUser()).setValue(p);
+    }
+
+
+    public ArrayList<Persona> getUsuarios(){
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-            {
-                if(dataSnapshot.exists())
-                {
-                    //Se obtiene la contraseña y usuario del nombre de usuario ingresado.
-                    String userDB = dataSnapshot.child(usuario).child("user").getValue(String.class);
-                    if(userDB.equals(usuario)){
-                        respuestas.add(userDB);
-                    }
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Persona> temp = new ArrayList<Persona>();
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    String user = snapshot.child("user").getValue(String.class);
+                    boolean status = snapshot.child("status").getValue(Boolean.class);
+                    String password = snapshot.child("password").getValue(String.class);
+                    Persona p = new Persona(user, password, status);
+                    temp.add(p);
                 }
+                respuestas = temp;
             }
             @Override
-            public  void  onCancelled(@NonNull DatabaseError databaseError)
-            {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-
         });
-        if(respuestas != null){
-            return true;
-        }
-        else{
-            return false;
-        }
-
+        return respuestas;
     }
+
+    public long getSize(){
+        reference.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //Get map of users in datasnapshot
+                        Size = dataSnapshot.getChildrenCount();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+        return Size;
+    }
+
 }

@@ -8,6 +8,10 @@
 
 package com.example.myapplication;
 
+import android.content.Context;
+
+import java.util.ArrayList;
+
 public class Driver {
 
     static AlmacenPersonas AlPe = new AlmacenPersonas();
@@ -16,33 +20,32 @@ public class Driver {
     static Persona persona;
 
 
-    // Este metodo genera un usuario con la informacion que se le brinde
-
-    public static int crearPersona(String n, String p) {
-
-        persona = new Persona(n,p);
-        return addUser(persona);
-        //AlPe.addUser(persona);
-
-    }
-
-    private static int addUser(Persona p){
-        return usuarios.add(p);
+    public static int addUser(String us, String pw){
+        if(!buscar(us, pw)){
+            persona = new Persona(us, pw, false);
+            usuarios.add(persona);
+            return 0;
+        }
+        return 1;
     }
 
     public static void nuevaPublicacion(Publicacion p){
         p.setId(posts.getSize()+1);
         posts.newPost(p);
-
     }
 
-    public static void enfermo(){
-
+    public static ArrayList<Publicacion> getPosts(){
+        return posts.getPosts();
     }
 
-    public static boolean comparardatos(String u, String p){
-        return usuarios.buscar(p,u);
+    public static boolean buscar(String us, String pw){
+        ArrayList<Persona> algo = usuarios.getUsuarios();
+        AlPe.setUsers(algo);
+        Persona temp = AlPe.buscar(us,pw);
+        if(temp != null){
+            persona = temp;
+            return true;
+        }
+        return false;
     }
-
-
 }
