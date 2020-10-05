@@ -25,7 +25,8 @@ import java.util.HashMap;
 
 public class Homes extends AppCompatActivity {
 
-    ArrayList<HashMap<String,String>> ListaDatos;
+    static PostsDatabase posts = new PostsDatabase("Publicaciones");
+    static ArrayList<Publicacion> ListaDatos;
 
     RecyclerView recycler;
 
@@ -36,36 +37,42 @@ public class Homes extends AppCompatActivity {
     Switch estado;
     TextView getuser;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homes);
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        recycler = findViewById(R.id.ReciclerPub);
+
+        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
+
+        AdapterDatos adapter = new AdapterDatos(ListaDatos);
+
+        recycler.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        ListaDatos = posts.getPosts();
 
 
         recycler = findViewById(R.id.ReciclerPub);
 
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
 
-
-
-        ListaDatos = new ArrayList<HashMap<String,String>>();
-
-        for (int i = 0; i < 5; i++) {
-
-            HashMap<String,String> l = new HashMap<String, String>();
-
-            l.put("usuario", "ejemplo");
-            l.put("titulo", "Este es un titulo de ejemplo");
-            l.put("descripcion", "Esta es una descripcion de ejemplo que necesita tener más caracteres y quiero decirte comeme beibi");
-
-            ListaDatos.add(l);
-
-        }
-
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
 
         recycler.setAdapter(adapter);
+
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_homes);
 
         newpost = findViewById(R.id.newpost);
 

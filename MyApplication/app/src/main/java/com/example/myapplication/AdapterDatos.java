@@ -16,9 +16,9 @@ import java.util.List;
 public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDatos> {
 
 
-    ArrayList<HashMap<String,String>> ListaDatos;
+ArrayList<Publicacion> ListaDatos;
 
-    public AdapterDatos(ArrayList<HashMap<String,String>> listaDatos) {
+    public AdapterDatos(ArrayList<Publicacion> listaDatos) {
         ListaDatos = listaDatos;
     }
 
@@ -36,7 +36,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
 
 
-        HashMap<String,String> prueba = ListaDatos.get(position);
+        Publicacion prueba = ListaDatos.get(position);
 
         holder.asignarDatos(prueba);
 
@@ -62,11 +62,11 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 
         }
 
-        public void asignarDatos(HashMap<String,String> s) {
+        public void asignarDatos(Publicacion s) {
 
-            String usuario = s.get("usuario");
-            String titulo = s.get("titulo");
-            String descripcion = s.get("descripcion");
+            String usuario = s.getUser();
+            String titulo = s.getType();
+            String descripcion = s.getDescription();
 
             usuariopub.setText(usuario);
             titulopub.setText(titulo);
