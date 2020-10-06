@@ -1,74 +1,89 @@
-//##################################################################
-
-//  Esta clase se hizo con el objetivo de aplicar de forma visual
-//  todos los conocimientos aprendidos en clase e incluir un driver
-//          para administrar de forma efectiva los datos.
-
-//###################################################################
-
 package com.example.myapplication;
-
 import android.content.Context;
+import android.content.Intent;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.EventListener;
 
-public class Driver {
+public class UserDatabase extends Database {
+    //Atributo de subclase que permite guardar los datos de usuarios.
+    private ArrayList<Persona> respuestas;
+    private String aber;
+    private long Size;
 
-    static AlmacenPersonas AlPe = new AlmacenPersonas();
-    static AlmacenPublicaciones almacenPublicaciones = new AlmacenPublicaciones();
-    static UserDatabase usuarios = new UserDatabase("Users");
-    static PostsDatabase posts = new PostsDatabase("Publicaciones");
-    static Persona persona;
-
-
-    public static int addUser(String us, String pw){
-        if(!buscar(us, pw)){
-            persona = new Persona(us, pw, false);
-            usuarios.add(persona);
-            return 0;
-        }
-        return 1;
+    public UserDatabase(String path) {
+        super(path);
+        respuestas = new ArrayList<Persona>();
+        Size = 0;
+        aber = "";
     }
 
-    public static void nuevaPublicacion(Publicacion p){
-        p.setId(posts.getSize()+1);
-        posts.newPost(p);
+    public void getUsuario() {
+
     }
 
-    public static ArrayList<Publicacion> getPosts(){
-        setPublicaciones();
-        return almacenPublicaciones.getPublicaciones();
+    public void getStatus() {
+
     }
 
-    private static void setPublicaciones(){
-        almacenPublicaciones.setPosts(posts.getPosts());
+    public void add(Persona p) { //Metodo que permite añadir un usuario a la base de datos.
+        reference.child(p.getUser()).setValue(p);
     }
 
 
+    public ArrayList<Persona> getUsuarios(){
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Persona> temp = new ArrayList<Persona>();
+                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                    String user = snapshot.child("user").getValue(String.class);
+                    boolean status = snapshot.child("status").getValue(Boolean.class);
+                    String password = snapshot.child("password").getValue(String.class);
+                    Persona p = new Persona(user, password, status);
+                    temp.add(p);
+                }
+                respuestas = temp;
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-    public static boolean buscar(String us, String pw){
-        ArrayList<Persona> algo = usuarios.getUsuarios();
-        AlPe.setUsers(algo);
-        Persona temp = AlPe.buscar(us,pw);
-        if(temp != null){
-            persona = temp;
-            return true;
-        }
-        return false;
+            }
+        });
+        return respuestas;
     }
 
-    public static void enfermo(){
-        persona.setStatus();
-        usuarios.modificarestado(persona);
+    public long getSize(){
+        reference.addListenerForSingleValueEvent(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //Get map of users in datasnapshot
+                        Size = dataSnapshot.getChildrenCount();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+        return Size;
     }
 
-    public static boolean obtenerestado(){
-        return persona.getStatus();
-    }
-
-    public static boolean verificar(boolean b){
-        return b == persona.getStatus();
+    public void modificarestado(Persona p){
+        reference.child(p.getUser()).child("status").setValue(p.getStatus());
     }
 
 }
-
