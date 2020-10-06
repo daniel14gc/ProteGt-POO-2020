@@ -28,11 +28,11 @@ public class PostsDatabase extends Database {
     }
 
     public ArrayList<Publicacion> getPosts(){
-        posts.clear();
-        reference.addValueEventListener(new ValueEventListener() {
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 long count = snapshot.getChildrenCount();
+                ArrayList<Publicacion> temp = new ArrayList<Publicacion>();
                 for(long i = 0; i<count; i++){
                     String index = Long.toString(i+1);
                     String description = snapshot.child(index).child("description").getValue().toString();
@@ -40,8 +40,9 @@ public class PostsDatabase extends Database {
                     String type = snapshot.child(index).child("type").getValue().toString();
                     String user = snapshot.child(index).child("user").getValue().toString();
                     Publicacion p = new Publicacion(user,location,type,description);
-                    posts.add(p);
+                    temp.add(p);
                 }
+                posts = temp;
             }
 
             @Override
@@ -50,6 +51,7 @@ public class PostsDatabase extends Database {
             }
         });
 
+        System.out.println(posts);
         return posts;
 
     }

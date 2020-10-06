@@ -79,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity{
                 //Si no se ingreso informacion en algun EditText
 
                 if(us.isEmpty()||pw.isEmpty()||cpw.isEmpty()){
+                    Driver.getPosts();
                     error.setText("Llene todos los espacios");
                     error.setVisibility(View.VISIBLE);
                 }
@@ -93,6 +94,7 @@ public class RegisterActivity extends AppCompatActivity{
                         // Generar usuario y guardarlo
                         int res = Driver.addUser(us,pw);
                         if(res == 0){
+                            Driver.getPosts();
                             Intent intent = new Intent(RegisterActivity.this, PrivacidadActivity.class);
                             startActivity(intent);
                         }
