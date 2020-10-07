@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 /*-------------------------------------
 Proyecto: ProteGt
-Fecha de modificacion: 09-30-2020
 Clase: Database
 
 Clase que permite definir las caracteristicas
@@ -21,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Database extends AppCompatActivity {
 
-    //Atributos de clase
+    //Atributos de clase.
     FirebaseDatabase database;
     DatabaseReference reference;
     String path;

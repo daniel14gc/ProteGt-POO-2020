@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "178407571714",
-    "firebase_url": "https://protegt-poo-2020.firebaseio.com",
-    "project_id": "protegt-poo-2020",
-    "storage_bucket": "protegt-poo-2020.appspot.com"
+    "project_number": "200942594549",
+    "firebase_url": "https://protegt-poo.firebaseio.com",
+    "project_id": "protegt-poo",
+    "storage_bucket": "protegt-poo.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:178407571714:android:2340643a44b1ae1eda421b",
+        "mobilesdk_app_id": "1:200942594549:android:38aaa7c2498cf0f89418bc",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
       "oauth_client": [
         {
-          "client_id": "178407571714-m0qk8f4gmp0u9qvd6vhb1fah0iied9oo.apps.googleusercontent.com",
+          "client_id": "200942594549-8ja21jb34jvgrtbdf6m7e3p4t3an96tb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.myapplication",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "178407571714-4gpl69k7ja58134573tol0g7rishf4ta.apps.googleusercontent.com",
+          "client_id": "200942594549-d79co2vk25b1q3n2l8a42nos30u5g2uj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBoTDeVO3y00SdsV9tX0aid_XanBNOyBBw"
+          "current_key": "AIzaSyDpMkfVNyI9bLx79UxxzC4uA2Yl5lt7M8Y"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "178407571714-4gpl69k7ja58134573tol0g7rishf4ta.apps.googleusercontent.com",
+              "client_id": "200942594549-d79co2vk25b1q3n2l8a42nos30u5g2uj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

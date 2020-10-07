@@ -10,6 +10,15 @@
 
 package com.example.myapplication;
 
+
+/*-------------------------------------
+Proyecto: ProteGt
+Clase: PrivacidadActivity
+
+Clase que permite mostrar el layout de privacidad y tiene los metodos
+para que funcione su boton de aceptar
+
+ -------------------------------------*/
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;

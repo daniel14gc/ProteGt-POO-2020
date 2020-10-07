@@ -16,6 +16,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.EventListener;
 
+
+
 public class UserDatabase extends Database {
     //Atributo de subclase que permite guardar los datos de usuarios.
     private ArrayList<Persona> respuestas;
@@ -41,7 +43,6 @@ public class UserDatabase extends Database {
         reference.child(p.getUser()).setValue(p);
     }
 
-
     public ArrayList<Persona> getUsuarios(){
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -56,6 +57,7 @@ public class UserDatabase extends Database {
                 }
                 respuestas = temp;
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
