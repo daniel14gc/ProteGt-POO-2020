@@ -1,11 +1,14 @@
-/*  #############################################################
 
-        Esta clase controla lo que se realiza en el Layout
-        activity_registar, contiene todos los metodos
-        necesarios para verificar si el usuario podra
-        registrarse o no.
+/*-------------------------------------
+Proyecto: ProteGt
+Clase: RegisterActivity
 
-    #############################################################   */
+clase controla lo que se realiza en el Layout
+activity_registar, contiene todos los metodos
+necesarios para verificar si el usuario podra
+registrarse o no.
+
+ -------------------------------------*/
 
 package com.example.myapplication;
 

@@ -9,6 +9,15 @@
 
 package com.example.myapplication;
 
+/*-------------------------------------
+Proyecto: ProteGt
+Clase: LoginActivity
+
+Clase que permite mostrar el layout de Login y tiene los metodos
+para que funcione el inicio de sesion de los usuarios
+
+ -------------------------------------*/
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 

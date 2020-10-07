@@ -20,6 +20,7 @@ public class Persona {
     private String password;
     private boolean status;
 
+    //constructor de la clase, el cual asignará las propiedades iniciales del objeto persona
     public Persona(String user, String password, boolean status){
         this.user = user;
         this.password = password;
@@ -37,7 +38,6 @@ public class Persona {
     // Metodo para obtener la contrasena del usuario.
 
     public String getPassword(){
-
         return password;
     }
 
@@ -46,7 +46,6 @@ public class Persona {
     // Metodo para obtener el status del usuario.
 
     public boolean getStatus(){
-
         return status;
     }
 
