@@ -15,23 +15,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.EventListener;
-<<<<<<< HEAD
-
-public class UserDatabase extends Database {
-    //Atributo de subclase que permite guardar los datos de usuarios.
-    private ArrayList<Persona> respuestas;
-
-    public UserDatabase(String path) {
-        super(path);
-        respuestas = new ArrayList<Persona>();
-    }
 
 
-    public void add(Persona p) { //Metodo que permite añadir un usuario a la base de datos.
-        reference.child(p.getUser()).setValue(p);
-    }
-
-=======
 
 public class UserDatabase extends Database {
     //Atributo de subclase que permite guardar los datos de usuarios.
@@ -57,7 +42,6 @@ public class UserDatabase extends Database {
     public void add(Persona p) { //Metodo que permite añadir un usuario a la base de datos.
         reference.child(p.getUser()).setValue(p);
     }
->>>>>>> 46a985fa5aa47068bee86459dd4af3eed7e108ff
 
     public ArrayList<Persona> getUsuarios(){
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -73,41 +57,14 @@ public class UserDatabase extends Database {
                 }
                 respuestas = temp;
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-<<<<<<< HEAD
-=======
-    public ArrayList<Persona> getUsuarios(){
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ArrayList<Persona> temp = new ArrayList<Persona>();
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()){
-                    String user = snapshot.child("user").getValue(String.class);
-                    boolean status = snapshot.child("status").getValue(Boolean.class);
-                    String password = snapshot.child("password").getValue(String.class);
-                    Persona p = new Persona(user, password, status);
-                    temp.add(p);
-                }
-                respuestas = temp;
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
->>>>>>> 46a985fa5aa47068bee86459dd4af3eed7e108ff
             }
         });
         return respuestas;
     }
-<<<<<<< HEAD
-
-    public void modificarestado(Persona p){
-        reference.child(p.getUser()).child("status").setValue(p.getStatus());
-    }
-
-}
-=======
 
     public long getSize(){
         reference.addListenerForSingleValueEvent(
@@ -132,4 +89,3 @@ public class UserDatabase extends Database {
     }
 
 }
->>>>>>> 46a985fa5aa47068bee86459dd4af3eed7e108ff
