@@ -1,4 +1,13 @@
 package com.example.myapplication;
+/*-------------------------------------
+Proyecto: ProteGt
+Clase: Publica
+
+Clase que tiene la funcion de recabar
+la informacion necesaria, dada por el
+usuario para que se pueda geenrar una
+nueva publicacion.
+ -------------------------------------*/
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Publica extends AppCompatActivity {
+    //Atributos de la clase
     TextView donde;
     CheckBox tipo1;
     CheckBox tipo2;
@@ -25,7 +35,7 @@ public class Publica extends AppCompatActivity {
     Boolean anonim= false;
 
 
-
+//Metodo que se inicializa a la hora de mostrar por primera vez el activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +49,8 @@ public class Publica extends AppCompatActivity {
         anonimo = findViewById(R.id.anonimo);
         tp = "";
 
+        //Funcion que se realiza al precionar el boton para indicar que
+        // el reporte es de un infectado.
         tipo1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +59,8 @@ public class Publica extends AppCompatActivity {
             }
         });
 
+        //Funcion que se realiza al precionar el boton para indicar que
+        // el reporte es de una anomalia.
         tipo2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +70,7 @@ public class Publica extends AppCompatActivity {
             }
         });
 
+        //indicar si la publicacion sera anonima o no.
         anonimo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,11 +78,15 @@ public class Publica extends AppCompatActivity {
             }
         });
 
+        //metodo que se realiza al precionar el boton de publicar.
         publicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Se toman los valores de los comentarios e informacion del usuario
                 dn = donde.getText().toString();
                 cm = comentario.getText().toString();
+
+                //Se envia al driver para que la pueda guardar.
                 if(anonim==false){
                     Publicacion p = new Publicacion("admin",dn,tp,cm);
                     Driver.nuevaPublicacion(p);

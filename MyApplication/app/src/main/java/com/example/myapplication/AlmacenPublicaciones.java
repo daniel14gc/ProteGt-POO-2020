@@ -23,34 +23,11 @@ public class AlmacenPublicaciones {
 
     }
 
-    public Publicacion getPublicacion(int index) {
-
-        // Metodo para buscar una publicacion segun su indice.
-
-        return posts.get(index);
-
+    public void setPosts(ArrayList<Publicacion> posts) {
+        this.posts = posts;
     }
 
-    public void addPublicacion(Publicacion p){
-
-        //Metodo para anadir una publicacion.
-
-        posts.add(p);
-
-    }
-
-    public void removePublicacion(Publicacion p){
-
-        //Metodo para eliminar una publicacion
-
-        posts.remove(p);
-
-    }
-
-    public ArrayList<Publicacion> getPublicaciones(int index) {
-
-        // Metodo para retornar todas las publicaciones.
-
+    public ArrayList<Publicacion> getPublicaciones() {
         return posts;
 
     }

@@ -1,11 +1,14 @@
-/*  #############################################################
 
-        Esta clase controla lo que se realiza en el Layout
-        activity_registar, contiene todos los metodos
-        necesarios para verificar si el usuario podra
-        registrarse o no.
+/*-------------------------------------
+Proyecto: ProteGt
+Clase: RegisterActivity
 
-    #############################################################   */
+clase controla lo que se realiza en el Layout
+activity_registar, contiene todos los metodos
+necesarios para verificar si el usuario podra
+registrarse o no.
+
+ -------------------------------------*/
 
 package com.example.myapplication;
 
@@ -79,6 +82,7 @@ public class RegisterActivity extends AppCompatActivity{
                 //Si no se ingreso informacion en algun EditText
 
                 if(us.isEmpty()||pw.isEmpty()||cpw.isEmpty()){
+                    Driver.getPosts();
                     error.setText("Llene todos los espacios");
                     error.setVisibility(View.VISIBLE);
                 }
@@ -93,6 +97,7 @@ public class RegisterActivity extends AppCompatActivity{
                         // Generar usuario y guardarlo
                         int res = Driver.addUser(us,pw);
                         if(res == 0){
+                            Driver.getPosts();
                             Intent intent = new Intent(RegisterActivity.this, PrivacidadActivity.class);
                             startActivity(intent);
                         }

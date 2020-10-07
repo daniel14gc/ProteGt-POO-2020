@@ -20,12 +20,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 
 public class Homes extends AppCompatActivity {
-
-    static PostsDatabase posts = new PostsDatabase("Publicaciones");
     static ArrayList<Publicacion> ListaDatos;
 
     RecyclerView recycler;
@@ -36,42 +35,33 @@ public class Homes extends AppCompatActivity {
     TextView cerrar;
     Switch estado;
     TextView getuser;
+    ImageView home;
 
 
     @Override
     protected void onResume() {
         super.onResume();
-
         recycler = findViewById(R.id.ReciclerPub);
-
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
-
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
-
         recycler.setAdapter(adapter);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        ListaDatos = posts.getPosts();
-
-
+        ListaDatos = Driver.getPosts();
         recycler = findViewById(R.id.ReciclerPub);
-
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
-
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
-
         recycler.setAdapter(adapter);
-
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_homes);
 
         newpost = findViewById(R.id.newpost);
@@ -148,6 +138,4 @@ public class Homes extends AppCompatActivity {
         Intent intent = new Intent(this, Map.class);
         startActivity(intent);
     }
-
-
 }

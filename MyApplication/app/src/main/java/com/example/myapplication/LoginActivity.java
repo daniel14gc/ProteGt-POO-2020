@@ -72,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(us.isEmpty()||pw.isEmpty()){
                     Driver.buscar(us,pw);
+                    Driver.getPosts();
                     // si NO, se le notifica al usuario que la ingrese.
 
                     error.setText("Llene todos los espacios");
@@ -79,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     if(Driver.buscar(us,pw)){
+                        Driver.getPosts();
                         Intent intent = new Intent(LoginActivity.this, Homes.class);
                         startActivity(intent);
                     }
