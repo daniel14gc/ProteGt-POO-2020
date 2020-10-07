@@ -6,7 +6,7 @@ Clase: Publica
 Clase que tiene la funcion de recabar
 la informacion necesaria, dada por el
 usuario para que se pueda geenrar una
-nueva publicacion.
+nueva publicacion..
  -------------------------------------*/
 
 import androidx.appcompat.app.AppCompatActivity;
