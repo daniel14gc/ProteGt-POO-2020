@@ -1,3 +1,13 @@
+//#########################################################################
+
+// Clase que permite realizar la conexión a la parte de los usuarios de la base de datos.
+// Aquí se puede agregar un nuevo usuario a la base de datos, obtener todos los usuarios
+// de la base de datos y modificar el estado de infección de Covid. Hereda de Database,
+// para poder definir  que se utilizará la rama de usuarios.
+
+// #########################################################################
+
+
 package com.example.myapplication;
 import android.content.Context;
 import android.content.Intent;
@@ -24,6 +34,7 @@ public class UserDatabase extends Database {
     private String aber;
     private long Size;
 
+    //Define la ruta de la base de datos de donde se obtendrán los datos, es decir de los usuarios. Inicializa la lista de personas.
     public UserDatabase(String path) {
         super(path);
         respuestas = new ArrayList<Persona>();
@@ -38,7 +49,7 @@ public class UserDatabase extends Database {
     public void getStatus() {
 
     }
-
+    //Permite añadir una persona previamente creada a la base de datos, cuando un nuevo usuario se registra.
     public void add(Persona p) { //Metodo que permite añadir un usuario a la base de datos.
         reference.child(p.getUser()).setValue(p);
     }
@@ -83,7 +94,7 @@ public class UserDatabase extends Database {
 
         return Size;
     }
-
+    //Cambia el estado de infección de coronavirus de una persona cuando es marcado por el usuario dentro de la aplicación.
     public void modificarestado(Persona p){
         reference.child(p.getUser()).child("status").setValue(p.getStatus());
     }
