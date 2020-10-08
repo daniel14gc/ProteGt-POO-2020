@@ -1,3 +1,13 @@
+/*  #######################################################
+
+        Esta clase contiene todos los metodos y atributos
+        necesarios para mostrar el mapa al usuario.
+
+    ###################################################### */
+
+
+
+
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +30,10 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     LatLng latLng;
     ImageView flecha;
     ImageView regreso;
+
+
+
+    // Metodo que define las acciones que se realizaran cuando se cree el activity.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +41,9 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
         flecha = findViewById(R.id.flecha);
         regreso = findViewById(R.id.back);
+
+
+        // Al cliquear el boton de regreso, la aplicacion retorna al usuario a homes.
 
         flecha.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +57,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         supportMapFragment.getMapAsync(this);
     }
 
+    // Metodo que define las acciones que se realizaran cuando el mapa este listo
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
@@ -47,6 +66,9 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         latLng = new LatLng(14.618988, -90.471653);
 
         gMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+
+            // Este metodo define que acciones se realizaran cuando el mapa se cargue
+
             @Override
             public void onMapLoaded() {
                 MarkerOptions markerOptions = new MarkerOptions();
@@ -63,6 +85,8 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         });
 
     }
+
+    // Metodo para retornar a homes
 
     public void home(){
         Intent intent = new Intent(Map.this, Homes.class);
