@@ -37,17 +37,17 @@ import java.util.HashMap;
 public class Homes extends AppCompatActivity {
 
     //Atributos de la clase
-    static ArrayList<Publicacion> ListaDatos;
+    private static ArrayList<Publicacion> ListaDatos;
 
-    RecyclerView recycler;
+    private RecyclerView recycler;
 
-    ImageView newpost;
-    ImageView mini;
-    ImageView mapa;
-    TextView cerrar;
-    Switch estado;
-    TextView getuser;
-    ImageView home;
+    private ImageView newpost;
+    private ImageView mini;
+    private ImageView mapa;
+    private TextView cerrar;
+    private Switch estado;
+    private TextView getuser;
+    private ImageView home;
 
 
     //Partes de la vida del activity.

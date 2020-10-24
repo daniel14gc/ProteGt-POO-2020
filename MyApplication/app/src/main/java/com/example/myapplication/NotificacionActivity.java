@@ -20,7 +20,7 @@ import android.widget.Button;
 
 public class NotificacionActivity extends AppCompatActivity{
 
-    Button activarButton;
+    private Button activarButton;
 
     //Metodo que indica las acciones que se realizan cuando se crea el Layout.
     @Override

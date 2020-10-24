@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button startButton;
+    private  Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

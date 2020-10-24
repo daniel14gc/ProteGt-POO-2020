@@ -28,14 +28,13 @@ import android.widget.TextView;
 
 public class RegisterActivity extends AppCompatActivity{
 
-    Driver driver = new Driver();
 
-    Button register;
-    EditText user;
-    EditText password;
-    EditText confirmPassword;
-    TextView error;
-    ImageView backArrow;
+    private Button register;
+    private EditText user;
+    private EditText password;
+    private EditText confirmPassword;
+    private TextView error;
+    private ImageView backArrow;
 
 
     @Override

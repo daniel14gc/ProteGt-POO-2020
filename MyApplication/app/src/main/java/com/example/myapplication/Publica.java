@@ -23,17 +23,17 @@ import android.widget.TextView;
 
 public class Publica extends AppCompatActivity {
     //Atributos de la clase
-    TextView donde;
-    CheckBox tipo1;
-    CheckBox tipo2;
-    TextView comentario;
-    CheckBox anonimo;
-    Button publicar;
-    String dn ="";
-    String tp ="";
-    String cm ="";
-    String us ="";
-    Boolean anonim= false;
+    private TextView donde;
+    private CheckBox tipo1;
+    private CheckBox tipo2;
+    private TextView comentario;
+    private CheckBox anonimo;
+    private Button publicar;
+    private String dn ="";
+    private String tp ="";
+    private String cm ="";
+    private String us ="";
+    private Boolean anonim= false;
 
 
 //Metodo que se inicializa a la hora de mostrar por primera vez el activity

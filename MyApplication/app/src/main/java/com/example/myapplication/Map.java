@@ -25,10 +25,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
-    GoogleMap gMap;
-    LatLng latLng;
-    ImageView flecha;
-    ImageView regreso;
+    private GoogleMap gMap;
+    private LatLng latLng;
+    private ImageView flecha;
+    private ImageView regreso;
 
 
 
