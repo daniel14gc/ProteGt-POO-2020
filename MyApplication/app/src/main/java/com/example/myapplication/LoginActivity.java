@@ -1,12 +1,3 @@
-/*  ##############################################################
-
-        Esta clase controla lo que ocurre en el layout de Login,
-        contiene los metodos necesarios para verificar si el
-                    usuario puede entrar o no.
-
-    #############################################################  */
-
-
 package com.example.myapplication;
 
 /*-------------------------------------

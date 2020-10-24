@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*  #################################################
 
         En esta clase el usuario debe aceptar las
@@ -6,9 +8,6 @@
 
     ################################################# */
 
-
-
-package com.example.myapplication;
 
 
 /*-------------------------------------

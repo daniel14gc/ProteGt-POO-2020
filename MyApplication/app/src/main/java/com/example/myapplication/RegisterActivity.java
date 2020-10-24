@@ -1,3 +1,4 @@
+package com.example.myapplication;
 
 /*-------------------------------------
 Proyecto: ProteGt
@@ -10,7 +11,6 @@ registrarse o no.
 
  -------------------------------------*/
 
-package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

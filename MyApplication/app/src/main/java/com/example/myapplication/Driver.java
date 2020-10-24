@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*-----------------------------------------------------------------
     Driver.java
     Grupo 6, proyecto semestral.
@@ -8,9 +10,6 @@
     y hacer funcional la aplicación.
 
 -----------------------------------------------------------------*/
-
-
-package com.example.myapplication;
 
 import android.content.Context;
 
@@ -66,6 +65,10 @@ public class Driver {
     public static void enfermo(){
         persona.setStatus();
         usuarios.modificarestado(persona);
+    }
+
+    public static String getUser(){
+        return persona.getUser();
     }
 
     //Permite obtener el estado de contagio de un usuario.

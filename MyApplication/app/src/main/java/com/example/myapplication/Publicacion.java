@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*  #############################################################
 
         Este metodo contiene toda la informacion necesaria
@@ -6,8 +8,6 @@
 
     #############################################################*/
 
-
-package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;

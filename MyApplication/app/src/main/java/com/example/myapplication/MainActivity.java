@@ -1,10 +1,11 @@
+package com.example.myapplication;
+
 /*  ####################################################
 
         Esta clase controla la pantalla de inicio.
 
     ################################################### */
 
-package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

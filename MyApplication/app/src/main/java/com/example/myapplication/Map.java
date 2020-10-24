@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*  #######################################################
 
         Esta clase contiene todos los metodos y atributos
@@ -6,9 +8,6 @@
     ###################################################### */
 
 
-
-
-package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -91,6 +90,5 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
     public void home(){
         Intent intent = new Intent(Map.this, Homes.class);
         startActivity(intent);
-
     }
 }
