@@ -61,6 +61,7 @@ public class Homes extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
+        recycler.scrollToPosition(ListaDatos.size()-1);
     }
 
     //OnStart es el momento en el cual vuelve a cargar la activity.
@@ -74,6 +75,7 @@ public class Homes extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
+        recycler.scrollToPosition(ListaDatos.size()-1);
     }
 
 

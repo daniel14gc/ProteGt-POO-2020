@@ -53,7 +53,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
     public void onBindViewHolder(@NonNull ViewHolderDatos holder, int position) {
 
 
-        Publicacion prueba = ListaDatos.get(position);
+        Publicacion prueba = ListaDatos.get(/*(ListaDatos.size()-1)-*/position);
 
         holder.asignarDatos(prueba);
 
@@ -74,6 +74,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
         TextView usuariopub;
         TextView titulopub;
         TextView descpub;
+        TextView locationpub;
 
 
         // Este metodo define las variables creadas anteriormente para proseguir con actualizar la información que los conforma.
@@ -82,6 +83,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             super(itemView);
 
             usuariopub = itemView.findViewById(R.id.usuariopub);
+            locationpub = itemView.findViewById(R.id.locationpub);
             titulopub = itemView.findViewById(R.id.titulopub);
             descpub = itemView.findViewById(R.id.descpub);
 
@@ -94,11 +96,13 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
 
             String usuario = s.getUser();
             String titulo = s.getType();
+            String location = s.getLocation();
             String descripcion = s.getDescription();
 
             usuariopub.setText(usuario);
             titulopub.setText(titulo);
             descpub.setText(descripcion);
+            locationpub.setText(location);
 
         }
     }

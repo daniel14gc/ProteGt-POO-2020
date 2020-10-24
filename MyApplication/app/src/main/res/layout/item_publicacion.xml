@@ -6,13 +6,13 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_width="410dp"
-        android:layout_height="166dp"
         android:background="@drawable/publicacion_border"
         android:orientation="vertical"
-        android:layout_margin="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,29 +21,39 @@
             android:id="@+id/usuariopub"
             android:layout_width="match_parent"
             android:layout_height="37dp"
-            android:background="#0000BCD4"
-            android:text="TextView"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"/>
-"/>
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="20dp"
+            android:background="#0000BCD4"
+            android:text="TextView" />
+        "/>
 
         <TextView
             android:id="@+id/titulopub"
-            android:layout_width="match_parent"
+            android:layout_width="340dp"
             android:layout_height="37dp"
-            android:background="#002196F3"
-            android:text="TextView"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:background="#002196F3"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/locationpub"
+            android:layout_width="340dp"
+            android:layout_height="37dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/descpub"
             android:layout_width="match_parent"
             android:layout_height="93dp"
-            android:background="#003F51B5"
-            android:text="TextView"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"/>
+            android:background="#003F51B5"
+            android:text="TextView" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
