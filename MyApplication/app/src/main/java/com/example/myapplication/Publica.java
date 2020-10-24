@@ -32,6 +32,7 @@ public class Publica extends AppCompatActivity {
     String dn ="";
     String tp ="";
     String cm ="";
+    String us ="";
     Boolean anonim= false;
 
 
@@ -48,6 +49,7 @@ public class Publica extends AppCompatActivity {
         comentario = findViewById(R.id.com);
         anonimo = findViewById(R.id.anonimo);
         tp = "";
+
 
         //Funcion que se realiza al precionar el boton para indicar que
         // el reporte es de un infectado.
@@ -85,10 +87,11 @@ public class Publica extends AppCompatActivity {
                 //Se toman los valores de los comentarios e informacion del usuario
                 dn = donde.getText().toString();
                 cm = comentario.getText().toString();
+                us = Driver.getUser();
 
                 //Se envia al driver para que la pueda guardar.
                 if(anonim==false){
-                    Publicacion p = new Publicacion("admin",dn,tp,cm);
+                    Publicacion p = new Publicacion(us,dn,tp,cm);
                     Driver.nuevaPublicacion(p);
                     //en admin hay que poner al usuario
                 }
