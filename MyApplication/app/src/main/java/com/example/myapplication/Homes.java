@@ -62,6 +62,7 @@ public class Homes extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
+        recycler.scrollToPosition(ListaDatos.size()-1);
 
         vistaPublicaciones();
     }
@@ -78,8 +79,7 @@ public class Homes extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
-
-        vistaPublicaciones();
+        recycler.scrollToPosition(ListaDatos.size()-1);
 
     }
 
