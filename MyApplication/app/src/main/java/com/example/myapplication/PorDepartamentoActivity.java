@@ -1,11 +1,11 @@
+package com.example.myapplication;
+
 //#########################################################################
 
 //Clase que tiene la función de mostrar los contagios por departamento en una nueva activity
 
 // #########################################################################
 
-
-        package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 

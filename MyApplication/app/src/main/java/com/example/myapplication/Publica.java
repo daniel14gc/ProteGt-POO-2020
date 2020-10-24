@@ -23,16 +23,17 @@ import android.widget.TextView;
 
 public class Publica extends AppCompatActivity {
     //Atributos de la clase
-    TextView donde;
-    CheckBox tipo1;
-    CheckBox tipo2;
-    TextView comentario;
-    CheckBox anonimo;
-    Button publicar;
-    String dn ="";
-    String tp ="";
-    String cm ="";
-    Boolean anonim= false;
+    private TextView donde;
+    private CheckBox tipo1;
+    private CheckBox tipo2;
+    private TextView comentario;
+    private CheckBox anonimo;
+    private Button publicar;
+    private String dn ="";
+    private String tp ="";
+    private String cm ="";
+    private String us ="";
+    private Boolean anonim= false;
 
 
 //Metodo que se inicializa a la hora de mostrar por primera vez el activity
@@ -48,6 +49,7 @@ public class Publica extends AppCompatActivity {
         comentario = findViewById(R.id.com);
         anonimo = findViewById(R.id.anonimo);
         tp = "";
+
 
         //Funcion que se realiza al precionar el boton para indicar que
         // el reporte es de un infectado.
@@ -85,10 +87,11 @@ public class Publica extends AppCompatActivity {
                 //Se toman los valores de los comentarios e informacion del usuario
                 dn = donde.getText().toString();
                 cm = comentario.getText().toString();
+                us = Driver.getUser();
 
                 //Se envia al driver para que la pueda guardar.
                 if(anonim==false){
-                    Publicacion p = new Publicacion("admin",dn,tp,cm);
+                    Publicacion p = new Publicacion(us,dn,tp,cm);
                     Driver.nuevaPublicacion(p);
                     //en admin hay que poner al usuario
                 }

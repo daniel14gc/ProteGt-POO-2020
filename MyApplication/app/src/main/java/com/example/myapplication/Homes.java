@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*-----------------------------------------------------------------
     Homes.java
     Grupo 6, proyecto semestral.
@@ -12,7 +14,6 @@
 -----------------------------------------------------------------*/
 
 //Paquetes importados para poder utilizar las funcionalidades de XML junto con java.
-package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,17 +37,17 @@ import java.util.HashMap;
 public class Homes extends AppCompatActivity {
 
     //Atributos de la clase
-    static ArrayList<Publicacion> ListaDatos;
+    private static ArrayList<Publicacion> ListaDatos;
 
-    RecyclerView recycler;
+    private RecyclerView recycler;
 
-    ImageView newpost;
-    ImageView mini;
-    ImageView mapa;
-    TextView cerrar;
-    Switch estado;
-    TextView getuser;
-    ImageView home;
+    private ImageView newpost;
+    private ImageView mini;
+    private ImageView mapa;
+    private TextView cerrar;
+    private Switch estado;
+    private TextView getuser;
+    private ImageView home;
 
 
     //Partes de la vida del activity.
@@ -61,7 +62,8 @@ public class Homes extends AppCompatActivity {
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
-        recycler.scrollToPosition(ListaDatos.size()-1);
+
+        vistaPublicaciones();
     }
 
     //OnStart es el momento en el cual vuelve a cargar la activity.
@@ -69,13 +71,16 @@ public class Homes extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+
         //Se crea el contenedor que tendrá las publicaciones y las muestra.
         ListaDatos = Driver.getPosts();
         recycler = findViewById(R.id.ReciclerPub);
         recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
-        recycler.scrollToPosition(ListaDatos.size()-1);
+
+        vistaPublicaciones();
+
     }
 
 
@@ -83,35 +88,25 @@ public class Homes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         //Conexión con el XML.
         setContentView(R.layout.activity_homes);
+        nPost();
+        cambiarEstado();
+        mini();
+        MapaCovid();
+        cerrarSesion();
+    }
 
-        //Conexión con la parte gráfica del botón que permite añadir una publicación.
-        newpost = findViewById(R.id.newpost);
+    public void vistaPublicaciones(){
+        //Se crea el contenedor que tendrá las publicaciones y las muestra.
+        ListaDatos = Driver.getPosts();
+        recycler = findViewById(R.id.ReciclerPub);
+        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        AdapterDatos adapter = new AdapterDatos(ListaDatos);
+        recycler.setAdapter(adapter);
+    }
 
-        //Creación del listener que espera a que el botón sea presionado.
-        newpost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Homes.this, Publica.class);
-                startActivity(intent);
-            }
-        });
-
-        //Conexión con la parte gráfica del botón que permite añadir una publicación.
-        estado = findViewById(R.id.estado);
-
-        //Creación listener que espera a que el botón sea presionado.
-        estado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (Driver.verificar(!estado.isChecked())){
-                    Driver.enfermo();
-                }
-            }
-        });
-
-
+    public void mini(){
         //Conexión con la parte gráfica del botón del menú donde se puede cerrar sesión o cambiar el estado de contagio.
         mini = findViewById(R.id.menu);
 
@@ -122,7 +117,7 @@ public class Homes extends AppCompatActivity {
         final LinearLayout ly = findViewById(R.id.minimenu);
 
         //Se escribe en el label el nombre del usuario que está en la aplicación.
-        getuser.setText(Driver.persona.getUser());
+        getuser.setText(Driver.getUser());
 
         //Se crear el listener que espera a que se presione el botón para acceder al menú.
         mini.setOnClickListener(new View.OnClickListener() {
@@ -141,26 +136,31 @@ public class Homes extends AppCompatActivity {
 
             }
         });
+    }
 
-        //Conexión con la parte gráfica del botón del menú donde se puede cerrar sesión o cambiar el estado de contagio.
-        mapa = findViewById(R.id.departamentos);
+    public void cambiarEstado(){
+        //Conexión con la parte gráfica del botón que permite añadir una publicación.
+        estado = findViewById(R.id.estado);
 
-        //Se crea el listener que espera a que el botón del mapa sea presionado.
-        mapa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MapaCovid();
+        //Creación listener que espera a que el botón sea presionado.
+        estado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (Driver.verificar(!estado.isChecked())){
+                    Driver.enfermo();
+                }
             }
         });
+    }
 
-        //Se obtiene conexión al botón para cerrar sesión.
-        cerrar = findViewById(R.id.cerrarsesion);
+    public void nPost(){
+        //Conexión con la parte gráfica del botón que permite añadir una publicación.
+        newpost = findViewById(R.id.newpost);
 
-        //Se crea el listener que espera para que el usuario cierre sesión y se sale de la aplicación.
-        cerrar.setOnClickListener(new View.OnClickListener() {
+        //Creación del listener que espera a que el botón sea presionado.
+        newpost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Homes.this, LoginActivity.class);
+                Intent intent = new Intent(Homes.this, Publica.class);
                 startActivity(intent);
             }
         });
@@ -173,10 +173,31 @@ public class Homes extends AppCompatActivity {
 
     }
 
+    public void MapaCovid(){//Conexión con la parte gráfica del botón del menú donde se puede cerrar sesión o cambiar el estado de contagio.
+        mapa = findViewById(R.id.departamentos);
 
-    public void MapaCovid(){
-        //Comunicación con el nuevo Layout donde se muestra el mapa con los contagiados.
-        Intent intent = new Intent(this, Map.class);
-        startActivity(intent);
+        //Se crea el listener que espera a que el botón del mapa sea presionado.
+        mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Comunicación con el nuevo Layout donde se muestra el mapa con los contagiados.
+                Intent intent = new Intent(Homes.this, Map.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void cerrarSesion(){
+        //Se obtiene conexión al botón para cerrar sesión.
+        cerrar = findViewById(R.id.cerrarsesion);
+
+        //Se crea el listener que espera para que el usuario cierre sesión y se sale de la aplicación.
+        cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Homes.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

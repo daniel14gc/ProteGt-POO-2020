@@ -1,3 +1,6 @@
+package com.example.myapplication;
+
+
 /*  ########################################################
 
         En esta clase almacena todas las publicaciones,
@@ -7,7 +10,6 @@
     ########################################################   */
 
 
-package com.example.myapplication;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

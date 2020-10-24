@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 //#########################################################################
 
 //  Esta clase almacena todos los usuarios que maneja la aplicacion
@@ -6,8 +8,6 @@
 
 // #########################################################################
 
-
-package com.example.myapplication;
 
 import java.security.Permission;
 import java.util.ArrayList;

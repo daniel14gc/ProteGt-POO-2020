@@ -1,10 +1,11 @@
+package com.example.myapplication;
+
 /*  ####################################################
 
         Esta clase controla la pantalla de inicio.
 
     ################################################### */
 
-package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,7 +22,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button startButton;
+    private  Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

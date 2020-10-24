@@ -1,12 +1,3 @@
-/*  ##########################################################
-
-        Este metodo se creo para solicitarle al usuario
-         que permita que la aplicacion pueda utilizar
-                         su ubicacion.
-
-    ########################################################## */
-
-
 package com.example.myapplication;
 
 /*-------------------------------------
@@ -29,7 +20,7 @@ import android.widget.Button;
 
 public class NotificacionActivity extends AppCompatActivity{
 
-    Button activarButton;
+    private Button activarButton;
 
     //Metodo que indica las acciones que se realizan cuando se crea el Layout.
     @Override

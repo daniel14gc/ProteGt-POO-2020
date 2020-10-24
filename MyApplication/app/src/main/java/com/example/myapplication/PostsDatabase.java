@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*-----------------------------------------------------------------
     PostsDatabase.java
     Grupo 6, proyecto semestral.
@@ -8,8 +10,6 @@
 
 -----------------------------------------------------------------*/
 
-
-package com.example.myapplication;
 
 import androidx.annotation.NonNull;
 

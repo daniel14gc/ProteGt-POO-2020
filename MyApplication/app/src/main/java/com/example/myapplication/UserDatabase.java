@@ -1,3 +1,6 @@
+package com.example.myapplication;
+
+
 //#########################################################################
 
 // Clase que permite realizar la conexión a la parte de los usuarios de la base de datos.
@@ -8,7 +11,7 @@
 // #########################################################################
 
 
-package com.example.myapplication;
+
 import android.content.Context;
 import android.content.Intent;
 

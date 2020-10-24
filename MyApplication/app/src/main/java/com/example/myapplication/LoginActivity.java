@@ -1,12 +1,3 @@
-/*  ##############################################################
-
-        Esta clase controla lo que ocurre en el layout de Login,
-        contiene los metodos necesarios para verificar si el
-                    usuario puede entrar o no.
-
-    #############################################################  */
-
-
 package com.example.myapplication;
 
 /*-------------------------------------
@@ -33,17 +24,15 @@ import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Driver driver = new Driver();
+    private Button registerButton;
+    private Button loginButton;
 
-    Button registerButton;
-    Button loginButton;
+    private EditText user;
+    private EditText password;
 
-    EditText user;
-    EditText password;
+    private TextView error;
 
-    TextView error;
-
-    Driver d = new Driver();
+    private Driver d = new Driver();
 
     //Metodo que indica las acciones que se realizan cuando se crea el Layout.
 

@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*  #################################################
 
         En esta clase el usuario debe aceptar las
@@ -6,9 +8,6 @@
 
     ################################################# */
 
-
-
-package com.example.myapplication;
 
 
 /*-------------------------------------
@@ -31,9 +30,9 @@ import android.widget.TextView;
 
 public class PrivacidadActivity extends AppCompatActivity {
 
-    ImageView cara;
-    TextView titulo;
-    Button siguiente;
+    private ImageView cara;
+    private TextView titulo;
+    private Button siguiente;
 
 
     // Cuando se cree el layout de Privacidad se realizaran las siguientes acciones

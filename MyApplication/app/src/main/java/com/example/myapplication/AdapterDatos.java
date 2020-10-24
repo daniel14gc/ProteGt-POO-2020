@@ -1,3 +1,5 @@
+package com.example.myapplication;
+
 /*    ################################################
 *
 *           Esta clase controla las publicaciones
@@ -5,8 +7,6 @@
 *
 *      ###############################################*/
 
-
-package com.example.myapplication;
 
 import android.view.LayoutInflater;
 import android.view.TextureView;
@@ -41,7 +41,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
     @Override
     public ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_publicacion,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_publicacion,null,true);
 
 
         return new ViewHolderDatos(view);
