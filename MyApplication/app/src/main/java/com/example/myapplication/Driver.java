@@ -61,6 +61,10 @@ public class Driver {
         return false;
     }
 
+    public static void size(){
+        posts.getSize();
+    }
+
     //Permite modificar el estado de contagio de un usuario.
     public static void enfermo(){
         persona.setStatus();

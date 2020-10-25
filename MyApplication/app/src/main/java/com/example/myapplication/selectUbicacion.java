@@ -1,14 +1,5 @@
 package com.example.myapplication;
 
-/*  #######################################################
-
-        Esta clase contiene todos los metodos y atributos
-        necesarios para mostrar el mapa al usuario.
-
-    ###################################################### */
-
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -19,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -27,48 +19,33 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-import java.util.ArrayList;
-
-public class Map extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
+public class selectUbicacion extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
 
     private GoogleMap gMap;
     private LatLng latLng;
-    private ImageView flecha;
-    private ImageView regreso;
+    private Button regreso;
     private Location currentLocation;
     private FusedLocationProviderClient fusedLocationProviderClient;
     private Marker marker;
     private static final int REQUEST_CODE = 101;
 
+
     // Metodo que define las acciones que se realizaran cuando se cree el activity.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
-
-        flecha = findViewById(R.id.flecha);
-        regreso = findViewById(R.id.back);
-
-
-        // Al cliquear el boton de regreso, la aplicacion retorna al usuario a homes.
-
-        flecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                home();
-            }
-        });
+        setContentView(R.layout.activity_select_ubicacion);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         fetchLastLocation();
+
+        publica();
 
     }
 
@@ -85,7 +62,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
                 if(location!= null){
                     currentLocation = location;
                     SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-                    supportMapFragment.getMapAsync(Map.this);
+                    supportMapFragment.getMapAsync(selectUbicacion.this);
                 }
             }
         });
@@ -98,14 +75,13 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
         gMap = googleMap;
         latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
         latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,5));
+        gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
         marker = gMap.addMarker(new MarkerOptions()
                 .position(latLng)
                 .draggable(true)
-                .title("Tu ubicación")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                .title("Ubicación")
         );
-        setMarkers();
+
         gMap.setOnMarkerDragListener(this);
     }
 
@@ -132,39 +108,20 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
 
     @Override
     public void onMarkerDragEnd(Marker marker) {
-        System.out.println(marker.getPosition().latitude);
+        this.marker = marker;
     }
 
     // Metodo para retornar a homes
-    public void home(){
-        Intent intent = new Intent(Map.this, Homes.class);
-        startActivity(intent);
-    }
-
-    public void setMarkers(){
-        ArrayList<Publicacion> publicaciones = Driver.getPosts();
-        for(int i = 0; i<publicaciones.size(); i++){
-            Publicacion temp = publicaciones.get(i);
-            String tipo = temp.getType();
-            double latitude = temp.getLatitude();
-            double longitude = temp.getLongitude();
-            latLng = new LatLng(latitude, longitude);
-            if(tipo.equals("Infectado")){
-                marker = gMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .draggable(true)
-                        .title("Infectados")
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-                );
+    public void publica(){
+        regreso = findViewById(R.id.position);
+        regreso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(selectUbicacion.this, Publica.class);
+                intent.putExtra("latitude", Double.toString(marker.getPosition().latitude));
+                intent.putExtra("longitude", Double.toString(marker.getPosition().longitude));
+                startActivity(intent);
             }
-            else {
-                marker = gMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .draggable(true)
-                        .title(tipo)
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
-                );
-            }
-        }
+        });
     }
 }

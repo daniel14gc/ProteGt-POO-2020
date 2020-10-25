@@ -105,22 +105,22 @@
         android:text="Infectados"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/new_ano"
-        app:layout_constraintHorizontal_bias="0.634"
+        app:layout_constraintHorizontal_bias="0.677"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintVertical_bias="0.416" />
 
     <CheckBox
         android:id="@+id/new_ano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginRight="88dp"
         android:text="Anomalias"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.359" />
+        app:layout_constraintVertical_bias="0.416" />
 
     <EditText
         android:id="@+id/com"
@@ -137,10 +137,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.612" />
+        app:layout_constraintVertical_bias="0.706" />
 
     <CheckBox
         android:id="@+id/anonimo"
@@ -153,5 +153,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.861" />
+
+    <TextView
+        android:id="@+id/ubicacion"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:text="O elige tu ubicación en el mapa"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        app:layout_constraintBottom_toTopOf="@+id/new_infe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usera3"
+        app:layout_constraintVertical_bias="0.575"
+        android:gravity="center_horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

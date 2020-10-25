@@ -58,14 +58,6 @@ public class Homes extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
-        //Se crea el contenedor que tendrá las publicaciones y las muestra.
-        recycler = findViewById(R.id.ReciclerPub);
-        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
-        AdapterDatos adapter = new AdapterDatos(ListaDatos);
-        recycler.setAdapter(adapter);
-        recycler.scrollToPosition(ListaDatos.size()-1);
-
         vistaPublicaciones();
     }
 
@@ -73,16 +65,13 @@ public class Homes extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-
-        //Se crea el contenedor que tendrá las publicaciones y las muestra.
-        ListaDatos = Driver.getPosts();
-        recycler = findViewById(R.id.ReciclerPub);
-        recycler.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,true));
-        AdapterDatos adapter = new AdapterDatos(ListaDatos);
-        recycler.setAdapter(adapter);
-        recycler.scrollToPosition(ListaDatos.size()-1);
-
+        nPost();
+        cambiarEstado();
+        mini();
+        MapaCovid();
+        cerrarSesion();
+        vistaPublicaciones();
+        Driver.size();
     }
 
 
@@ -92,11 +81,6 @@ public class Homes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Conexión con el XML.
         setContentView(R.layout.activity_homes);
-        nPost();
-        cambiarEstado();
-        mini();
-        MapaCovid();
-        cerrarSesion();
     }
 
     public void filtro(View view) {
@@ -147,7 +131,6 @@ public class Homes extends AppCompatActivity {
                 filtradas.add(pub);
             }
         }
-
         AdapterDatos adapter = new AdapterDatos(filtradas);
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(ListaDatos.size()-1);

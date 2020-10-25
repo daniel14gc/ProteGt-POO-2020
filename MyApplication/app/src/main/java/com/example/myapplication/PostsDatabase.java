@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class PostsDatabase extends Database {
@@ -56,7 +57,9 @@ public class PostsDatabase extends Database {
                     String location = snapshot.child(index).child("location").getValue().toString();
                     String type = snapshot.child(index).child("type").getValue().toString();
                     String user = snapshot.child(index).child("user").getValue().toString();
-                    Publicacion p = new Publicacion(user,location,type,description);
+                    Double latitude = snapshot.child(index).child("latitude").getValue(Double.class);
+                    Double longitude = snapshot.child(index).child("longitude").getValue(Double.class);
+                    Publicacion p = new Publicacion(user,location,type,description, latitude, longitude);
                     temp.add(p);
                 }
                 posts = temp;
@@ -68,9 +71,10 @@ public class PostsDatabase extends Database {
             }
         });
 
+        Collections.reverse(posts);
+
         //Se devuelven los posts en un arraylist.
         return posts;
-
     }
 
     //Método que permite obtener el tamaño de la base de datos, lo que servirá como ID para un nuevo post.

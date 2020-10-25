@@ -21,4 +21,6 @@
     <string name="nuevo_usuario">Nuevo Usuario</string>
     <string name="todo">TODO</string>
     <string name="title_activity_covid_map">Map</string>
+    <string name="Usar" />
+    <string name="usar" />
 </resources>
