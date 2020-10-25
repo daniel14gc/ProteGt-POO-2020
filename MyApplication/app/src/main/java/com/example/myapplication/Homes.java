@@ -21,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -95,6 +97,61 @@ public class Homes extends AppCompatActivity {
         mini();
         MapaCovid();
         cerrarSesion();
+    }
+
+    public void filtro(View view) {
+
+        View filt = findViewById(R.id.opfiltrolay);
+
+        filt.bringToFront();
+        if (filt.isShown() == true){
+            filt.setVisibility(View.INVISIBLE);
+        }
+        else{
+            filt.setVisibility(View.VISIBLE);
+        }
+
+
+    }
+
+    public void filtroAnomalia(View view) {
+
+        ArrayList<Publicacion> filtradas = new ArrayList<Publicacion>();
+
+        for(Publicacion pub : ListaDatos) {
+            if (pub.getType().equals("Anomalia")) {
+                filtradas.add(pub);
+            }
+        }
+
+        AdapterDatos adapter = new AdapterDatos(filtradas);
+        recycler.setAdapter(adapter);
+        recycler.scrollToPosition(ListaDatos.size()-1);
+
+    }
+
+    public void filtroTodos(View view) {
+        ListaDatos = Driver.getPosts();
+        AdapterDatos adapter = new AdapterDatos(ListaDatos);
+        recycler.setAdapter(adapter);
+        recycler.scrollToPosition(0);
+
+    }
+
+    public void filtroInfectados(View view) {
+
+        ArrayList<Publicacion> filtradas = new ArrayList<Publicacion>();
+
+        for(Publicacion pub : ListaDatos) {
+            if (pub.getType().equals("Infectado")) {
+                filtradas.add(pub);
+            }
+        }
+
+        AdapterDatos adapter = new AdapterDatos(filtradas);
+        recycler.setAdapter(adapter);
+        recycler.scrollToPosition(ListaDatos.size()-1);
+
     }
 
     public void vistaPublicaciones(){

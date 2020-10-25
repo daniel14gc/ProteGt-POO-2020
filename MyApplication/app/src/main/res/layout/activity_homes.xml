@@ -138,17 +138,70 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ReciclerPub"
-        android:layout_width="403dp"
-        android:layout_height="525dp"
+        android:layout_width="418dp"
+        android:layout_height="481dp"
         android:addStatesFromChildren="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.606">
+        app:layout_constraintVertical_bias="0.676">
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/filtro"
+        android:layout_width="123dp"
+        android:layout_height="28dp"
+        android:background="#EDEBEB"
+        android:onClick="filtro"
+        android:text="        Filtrar por..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.173" />
+
+    <LinearLayout
+        android:id="@+id/opfiltrolay"
+        android:layout_width="186dp"
+        android:layout_height="106dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.195">
+
+        <TextView
+            android:id="@+id/Anomalia"
+            android:layout_width="134dp"
+            android:layout_height="37dp"
+            android:background="#D6D4D4"
+            android:onClick="filtroAnomalia"
+            android:text="            Anomalía" />
+
+        <TextView
+            android:id="@+id/infectados"
+            android:layout_width="134dp"
+            android:layout_height="37dp"
+            android:background="#D6D4D4"
+            android:onClick="filtroInfectados"
+            android:text="          Infectados" />
+
+        <TextView
+            android:id="@+id/optodos"
+            android:layout_width="134dp"
+            android:layout_height="37dp"
+            android:background="#D6D4D4"
+            android:onClick="filtroTodos"
+            android:text="             Todos" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
