@@ -50,6 +50,9 @@ public class Homes extends AppCompatActivity {
     private Switch estado;
     private TextView getuser;
     private ImageView home;
+    private TextView todos;
+    private TextView anoma;
+    private TextView infe;
 
 
     //Partes de la vida del activity.
@@ -97,6 +100,9 @@ public class Homes extends AppCompatActivity {
         mini();
         MapaCovid();
         cerrarSesion();
+        todos = findViewById(R.id.optodos);
+        anoma = findViewById(R.id.Anomalia);
+        infe = findViewById(R.id.Infectados);
     }
 
     public void filtro(View view) {
@@ -127,7 +133,9 @@ public class Homes extends AppCompatActivity {
         AdapterDatos adapter = new AdapterDatos(filtradas);
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(ListaDatos.size()-1);
-
+        anoma.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
+        infe.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
+        todos.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
     }
 
     public void filtroTodos(View view) {
@@ -136,6 +144,9 @@ public class Homes extends AppCompatActivity {
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(0);
 
+        todos.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
+        infe.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
+        anoma.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
     }
 
     public void filtroInfectados(View view) {
@@ -152,6 +163,9 @@ public class Homes extends AppCompatActivity {
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(ListaDatos.size()-1);
 
+        infe.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
+        anoma.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
+        todos.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
     }
 
     public void vistaPublicaciones(){
