@@ -72,7 +72,7 @@ public class PostsDatabase extends Database {
         });
 
         Collections.reverse(posts);
-
+        Collections.reverse(posts);
         //Se devuelven los posts en un arraylist.
         return posts;
     }

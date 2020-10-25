@@ -153,7 +153,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
                 marker = gMap.addMarker(new MarkerOptions()
                         .position(latLng)
                         .draggable(true)
-                        .title("Infectados")
+                        .title("Infectados:")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                 );
             }
@@ -161,7 +161,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
                 marker = gMap.addMarker(new MarkerOptions()
                         .position(latLng)
                         .draggable(true)
-                        .title(tipo)
+                        .title("Anomalía")
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 );
             }

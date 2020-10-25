@@ -84,4 +84,15 @@ public class Driver {
     public static boolean verificar(boolean b){
         return b == persona.getStatus();
     }
+
+    //Permite obtener la cantidad de casos activos en la app.
+    public static int getCasosApp (){
+        return AlPe.getCasosApp();
+    }
+
+    //Permite obtener la cantidad de casos activos en Guatemala.
+    public static int getCasosGuate (){
+        return AlPe.getCasosGuate();
+    }
+
 }

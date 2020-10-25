@@ -37,4 +37,20 @@ public class AlmacenPersonas {
 
         return null;
     }
+
+    //Permite obtener la cantidad de infectados en la base de datos de ProteGt
+    public int getCasosApp(){
+        int temp = 0;
+        for (int i = 0; i < users.size(); i++){
+            if (users.get(i).getStatus()){
+                temp ++;
+            }
+        }
+        return temp;
+    }
+
+    //Permite obtener la cantidad de infectados en Guatemala
+    public int getCasosGuate(){
+        return 8033;
+    }
 }

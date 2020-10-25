@@ -155,9 +155,10 @@
         android:id="@+id/filtro"
         android:layout_width="123dp"
         android:layout_height="28dp"
-        android:background="#EDEBEB"
+        android:background="@drawable/cosita3"
         android:onClick="filtro"
         android:text="        Filtrar por..."
+        android:textColor="#EBFFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
@@ -167,8 +168,8 @@
 
     <LinearLayout
         android:id="@+id/opfiltrolay"
-        android:layout_width="186dp"
-        android:layout_height="106dp"
+        android:layout_width="189dp"
+        android:layout_height="113dp"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,15 +183,15 @@
             android:id="@+id/Anomalia"
             android:layout_width="134dp"
             android:layout_height="37dp"
-            android:background="#D6D4D4"
+            android:background="@drawable/cosita2"
             android:onClick="filtroAnomalia"
             android:text="            Anomalía" />
 
         <TextView
-            android:id="@+id/infectados"
+            android:id="@+id/Infectados"
             android:layout_width="134dp"
             android:layout_height="37dp"
-            android:background="#D6D4D4"
+            android:background="@drawable/cosita2"
             android:onClick="filtroInfectados"
             android:text="          Infectados" />
 
@@ -198,7 +199,7 @@
             android:id="@+id/optodos"
             android:layout_width="134dp"
             android:layout_height="37dp"
-            android:background="#D6D4D4"
+            android:background="@drawable/cosaita1"
             android:onClick="filtroTodos"
             android:text="             Todos" />
     </LinearLayout>
