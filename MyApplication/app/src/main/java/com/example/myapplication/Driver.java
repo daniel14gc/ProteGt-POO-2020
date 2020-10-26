@@ -30,7 +30,7 @@ public class Driver {
         if(!buscar(us, pw)){
             //Si no existe, se añade a la base de datos.
             persona = new Persona(us, pw, false);
-            usuarios.add(persona);
+            usuarios.addElements(persona);
             return 0;
         }
         return 1;
@@ -39,23 +39,34 @@ public class Driver {
     //Método que permite realizar una nueva publicación.
     public static void nuevaPublicacion(Publicacion p){
         p.setId(posts.getSize()+1);
-        posts.newPost(p);
+        posts.addElements(p);
     }
 
     //Se obtienen todos los posts que hay en la base de datos para mostrarlos al usuario.
     public static ArrayList<Publicacion> getPosts(){
-        return posts.getPosts();
+        ArrayList<Publicacion> temp = new ArrayList<Publicacion>();
+        ArrayList<Object> publicaciones = posts.getElements();
+        for(int i = 0; i< publicaciones.size(); i++){
+            Publicacion p = (Publicacion) publicaciones.get(i);
+            temp.add(p);
+        }
+        return temp;
     }
 
     //Método que permite definir si un usuario existe o no en la base de datos.
     public static boolean buscar(String us, String pw){
         //Se obtienen todos los usuarios de la base de datos y se busca
         //por nombre de usuario y contraseña.
-        ArrayList<Persona> algo = usuarios.getUsuarios();
-        AlPe.setUsers(algo);
-        Persona temp = AlPe.buscar(us,pw);
+        ArrayList<Object> users = usuarios.getElements();
+        ArrayList<Persona> temp = new ArrayList<Persona>();
+        for(int i = 0; i<users.size(); i++){
+            Persona p = (Persona) users.get(i);
+            temp.add(p);
+        }
+        AlPe.setUsers(temp);
+        Persona pTemp = AlPe.buscar(us,pw);
         if(temp != null){
-            persona = temp;
+            persona = pTemp;
             return true;
         }
         return false;
@@ -68,7 +79,7 @@ public class Driver {
     //Permite modificar el estado de contagio de un usuario.
     public static void enfermo(){
         persona.setStatus();
-        usuarios.modificarestado(persona);
+        usuarios.modificarElemento(persona);
     }
 
     public static String getUser(){

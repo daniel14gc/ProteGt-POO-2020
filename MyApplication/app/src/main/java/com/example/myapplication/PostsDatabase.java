@@ -25,32 +25,29 @@ import java.util.HashMap;
 
 public class PostsDatabase extends Database {
 
-    //Atributos de clase.
-    private long Size;
-    private ArrayList<Publicacion> posts;
 
 
     //Constructor que permite definir la rama de la base de datos que se consultará y se inicializan los atributos.
     public PostsDatabase(String p){
         super(p);
-        Size = 0;
-        posts = new ArrayList<Publicacion>();
+
     }
 
     //Método que permite crear un nuevo post conectando a la base de datos.
-    public void newPost(Publicacion p){
+    public void addElements(Object n){
+        Publicacion p = (Publicacion)n;
         reference.child(Long.toString(p.getId())).setValue(p);
     }
 
     //Método que permite obtener todos los posts de la base de datos.
-    public ArrayList<Publicacion> getPosts(){
+    public ArrayList<Object> getElements(){
         //Se crea un listener que espera a que los datos cambien en la base.
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 //Cuando cambian, se obtienen todos los posts realizados.
                 long count = snapshot.getChildrenCount();
-                ArrayList<Publicacion> temp = new ArrayList<Publicacion>();
+                ArrayList<Object> temp = new ArrayList<Object>();
                 for(long i = 0; i<count; i++){
                     String index = Long.toString(i+1);
                     String description = snapshot.child(index).child("description").getValue().toString();
@@ -62,7 +59,7 @@ public class PostsDatabase extends Database {
                     Publicacion p = new Publicacion(user,location,type,description, latitude, longitude);
                     temp.add(p);
                 }
-                posts = temp;
+                elementos = temp;
             }
 
             @Override
@@ -71,10 +68,10 @@ public class PostsDatabase extends Database {
             }
         });
 
-        Collections.reverse(posts);
-        Collections.reverse(posts);
+        Collections.reverse(elementos);
+
         //Se devuelven los posts en un arraylist.
-        return posts;
+        return elementos;
     }
 
     //Método que permite obtener el tamaño de la base de datos, lo que servirá como ID para un nuevo post.
@@ -96,4 +93,8 @@ public class PostsDatabase extends Database {
         return Size;
     }
 
+    @Override
+    public void modificarElemento(Object n) {
+
+    }
 }
