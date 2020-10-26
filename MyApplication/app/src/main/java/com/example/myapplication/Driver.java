@@ -19,8 +19,9 @@ public class Driver {
 
     //Atributos de clase.
     static AlmacenPersonas AlPe = new AlmacenPersonas();
-    static UserDatabase usuarios = new UserDatabase("Users");
-    static PostsDatabase posts = new PostsDatabase("Publicaciones");
+    static Database usuarios = new UserDatabase("Users");
+    static Database posts = new PostsDatabase("Publicaciones");
+    static AlmacenPublicaciones Almpost =  new AlmacenPublicaciones();
     static Persona persona;
 
 
@@ -50,6 +51,18 @@ public class Driver {
             Publicacion p = (Publicacion) publicaciones.get(i);
             temp.add(p);
         }
+        Almpost.setPosts(temp);
+        return temp;
+    }
+    public static ArrayList<Publicacion> getPosts(int filtro){
+        ArrayList<Publicacion> temp = new ArrayList<Publicacion>();
+       if(filtro==-1)
+       {
+        temp=Almpost.filtro1();
+       }
+       else {
+           temp=Almpost.filtro2();
+       }
         return temp;
     }
 

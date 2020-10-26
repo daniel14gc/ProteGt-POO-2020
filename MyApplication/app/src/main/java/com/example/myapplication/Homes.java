@@ -111,15 +111,9 @@ public class Homes extends AppCompatActivity {
 
     public void filtroAnomalia(View view) {
 
-        ArrayList<Publicacion> filtradas = new ArrayList<Publicacion>();
+        ListaDatos=Driver.getPosts(0);
 
-        for(Publicacion pub : ListaDatos) {
-            if (pub.getType().equals("Anomalia")) {
-                filtradas.add(pub);
-            }
-        }
-
-        AdapterDatos adapter = new AdapterDatos(filtradas);
+        AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(ListaDatos.size()-1);
         anoma.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
@@ -140,14 +134,9 @@ public class Homes extends AppCompatActivity {
 
     public void filtroInfectados(View view) {
 
-        ArrayList<Publicacion> filtradas = new ArrayList<Publicacion>();
+        ListaDatos=Driver.getPosts(-1);
 
-        for(Publicacion pub : ListaDatos) {
-            if (pub.getType().equals("Infectado")) {
-                filtradas.add(pub);
-            }
-        }
-        AdapterDatos adapter = new AdapterDatos(filtradas);
+        AdapterDatos adapter = new AdapterDatos(ListaDatos);
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(ListaDatos.size()-1);
 
