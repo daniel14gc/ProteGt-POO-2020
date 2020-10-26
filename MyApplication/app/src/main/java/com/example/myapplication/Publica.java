@@ -44,7 +44,6 @@ public class Publica extends AppCompatActivity {
     private String tp ="";
     private String cm ="";
     private String us ="";
-    private Marker marker;
     private double latitude;
     private double longitude;
     private Boolean anonim= false;

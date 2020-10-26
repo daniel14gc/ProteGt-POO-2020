@@ -32,36 +32,26 @@ import java.util.EventListener;
 
 
 public class UserDatabase extends Database {
-    //Atributo de subclase que permite guardar los datos de usuarios.
-    private ArrayList<Persona> respuestas;
-    private String aber;
-    private long Size;
+
 
     //Define la ruta de la base de datos de donde se obtendrán los datos, es decir de los usuarios. Inicializa la lista de personas.
     public UserDatabase(String path) {
         super(path);
-        respuestas = new ArrayList<Persona>();
-        Size = 0;
-        aber = "";
-    }
-
-    public void getUsuario() {
 
     }
 
-    public void getStatus() {
 
-    }
     //Permite añadir una persona previamente creada a la base de datos, cuando un nuevo usuario se registra.
-    public void add(Persona p) { //Metodo que permite añadir un usuario a la base de datos.
+    public void addElements(Object n) { //Metodo que permite añadir un usuario a la base de datos.
+        Persona p = (Persona)n;
         reference.child(p.getUser()).setValue(p);
     }
 
-    public ArrayList<Persona> getUsuarios(){
+    public ArrayList<Object> getElements(){
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ArrayList<Persona> temp = new ArrayList<Persona>();
+                ArrayList<Object> temp = new ArrayList<Object>();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     String user = snapshot.child("user").getValue(String.class);
                     boolean status = snapshot.child("status").getValue(Boolean.class);
@@ -69,7 +59,7 @@ public class UserDatabase extends Database {
                     Persona p = new Persona(user, password, status);
                     temp.add(p);
                 }
-                respuestas = temp;
+                elementos = temp;
             }
 
             @Override
@@ -77,7 +67,7 @@ public class UserDatabase extends Database {
 
             }
         });
-        return respuestas;
+        return elementos;
     }
 
     public long getSize(){
@@ -98,7 +88,8 @@ public class UserDatabase extends Database {
         return Size;
     }
     //Cambia el estado de infección de coronavirus de una persona cuando es marcado por el usuario dentro de la aplicación.
-    public void modificarestado(Persona p){
+    public void modificarElemento(Object n){
+        Persona p = (Persona)n;
         reference.child(p.getUser()).child("status").setValue(p.getStatus());
     }
 
