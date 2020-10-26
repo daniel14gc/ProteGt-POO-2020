@@ -14,7 +14,7 @@ package com.example.myapplication;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class AlmacenPublicaciones {
+public class AlmacenPublicaciones implements filtro{
     //Almacena las publicaciones realizadas por los usuarios.
     private ArrayList<Publicacion> posts;
 
@@ -32,6 +32,32 @@ public class AlmacenPublicaciones {
     public ArrayList<Publicacion> getPublicaciones() {
         return posts;
 
+    }
+
+    public ArrayList<Publicacion> filtro1()
+    {
+        ArrayList<Publicacion> temp= new ArrayList<>();
+        for (int i =0;i< posts.size();i++)
+        {
+            if(posts.get(i).getType().equals("Infectado"))
+            {
+                temp.add(posts.get(i));
+            }
+
+        }
+        return temp;
+    }
+    public ArrayList<Publicacion> filtro2()
+    {
+        ArrayList<Publicacion> temp= new ArrayList<>();
+        for (int i =0;i< posts.size();i++)
+        {
+            if(!posts.get(i).getType().equals("Infectado"))
+            {
+                temp.add(posts.get(i));
+            }
+        }
+        return temp;
     }
 
 }
