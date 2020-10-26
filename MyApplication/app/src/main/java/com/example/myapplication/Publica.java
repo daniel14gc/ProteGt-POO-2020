@@ -47,6 +47,7 @@ public class Publica extends AppCompatActivity {
     private double latitude;
     private double longitude;
     private Boolean anonim= false;
+    private TextView error;
 
 
 //Metodo que se inicializa a la hora de mostrar por primera vez el activity
@@ -61,6 +62,7 @@ public class Publica extends AppCompatActivity {
         tipo2 = findViewById(R.id.new_ano);
         comentario = findViewById(R.id.com);
         anonimo = findViewById(R.id.anonimo);
+        error  = findViewById(R.id.errorpublic);
         tp = "";
 
         Driver.size();
@@ -111,18 +113,27 @@ public class Publica extends AppCompatActivity {
                 cm = comentario.getText().toString();
                 us = Driver.getUser();
 
-                //Se envia al driver para que la pueda guardar.
-                if(anonim==false){
-                    Publicacion p = new Publicacion(us,dn,tp,cm, latitude, longitude);
-                    Driver.nuevaPublicacion(p);
-                    //en admin hay que poner al usuario
+                if (!donde.getText().equals("") && (tipo1.isChecked() || tipo2.isChecked())){
+
+                    //Se envia al driver para que la pueda guardar.
+                    if(anonim==false){
+                        Publicacion p = new Publicacion(us,dn,tp,cm, latitude, longitude);
+                        Driver.nuevaPublicacion(p);
+                        //en admin hay que poner al usuario
+                    }
+                    else if(anonim==true){
+                        Publicacion p = new Publicacion("anonimo",dn,tp,cm, latitude, longitude);
+                        Driver.nuevaPublicacion(p);
+                    }
+                    Intent intent = new Intent(Publica.this, Homes.class);
+                    startActivity(intent);
+
                 }
-                else if(anonim==true){
-                    Publicacion p = new Publicacion("anonimo",dn,tp,cm, latitude, longitude);
-                    Driver.nuevaPublicacion(p);
+                else{
+                    error.setVisibility(View.VISIBLE);
                 }
-                Intent intent = new Intent(Publica.this, Homes.class);
-                startActivity(intent);
+
+
             }
         });
 

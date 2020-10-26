@@ -124,8 +124,8 @@
 
     <EditText
         android:id="@+id/com"
-        android:layout_width="330dp"
-        android:layout_height="207dp"
+        android:layout_width="325dp"
+        android:layout_height="169dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:gravity="start"
@@ -137,10 +137,10 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintVertical_bias="0.628" />
 
     <CheckBox
         android:id="@+id/anonimo"
@@ -149,10 +149,9 @@
         android:text="Anonimamante"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="0.778" />
 
     <TextView
         android:id="@+id/ubicacion"
@@ -168,5 +167,19 @@
         app:layout_constraintTop_toBottomOf="@+id/usera3"
         app:layout_constraintVertical_bias="0.575"
         android:gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/errorpublic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Debe llenar todos los campos de la publicación"
+        android:textColor="#FF0000"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.856" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
