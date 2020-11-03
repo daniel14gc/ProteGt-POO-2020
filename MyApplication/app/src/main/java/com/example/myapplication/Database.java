@@ -62,17 +62,6 @@ public abstract class Database extends AppCompatActivity implements DBOps {
 
         return Size;
     }
-
-    @Override
-    public abstract void addElements(Object n);
-
-
-
-    @Override
-    public abstract ArrayList<Object> getElements();
-
-    @Override
-    public abstract void modificarElemento(Object n);
 }
 
 

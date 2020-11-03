@@ -8,6 +8,7 @@ package com.example.myapplication;
 *      ###############################################*/
 
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -75,6 +76,7 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
         TextView titulopub;
         TextView descpub;
         TextView locationpub;
+        TextView id;
 
 
         // Este metodo define las variables creadas anteriormente para proseguir con actualizar la información que los conforma.
@@ -86,6 +88,16 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             locationpub = itemView.findViewById(R.id.locationpub);
             titulopub = itemView.findViewById(R.id.titulopub);
             descpub = itemView.findViewById(R.id.descpub);
+            id = itemView.findViewById(R.id.id);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), Map.class);
+                    intent.putExtra("id", id.getText());
+                    v.getContext().startActivity(intent);
+                }
+            });
 
         }
 
@@ -98,12 +110,15 @@ public class AdapterDatos extends RecyclerView.Adapter<AdapterDatos.ViewHolderDa
             String titulo = s.getType();
             String location = s.getLocation();
             String descripcion = s.getDescription();
+            String iden = Long.toString(s.getId());
 
-            usuariopub.setText(usuario);
-            titulopub.setText(titulo);
-            descpub.setText(descripcion);
-            locationpub.setText(location);
 
+            usuariopub.setText("Usuario: " + usuario);
+            titulopub.setText("Tipo: " +titulo);
+            descpub.setText("\nDescripcion: \n"+descripcion);
+            locationpub.setText("Lugar: " + location);
+            id.setText(iden);
+            id.setVisibility(View.INVISIBLE);
         }
     }
 }

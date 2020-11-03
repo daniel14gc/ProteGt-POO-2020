@@ -70,23 +70,6 @@ public class UserDatabase extends Database {
         return elementos;
     }
 
-    public long getSize(){
-        reference.addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //Get map of users in datasnapshot
-                        Size = dataSnapshot.getChildrenCount();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-        return Size;
-    }
     //Cambia el estado de infección de coronavirus de una persona cuando es marcado por el usuario dentro de la aplicación.
     public void modificarElemento(Object n){
         Persona p = (Persona)n;

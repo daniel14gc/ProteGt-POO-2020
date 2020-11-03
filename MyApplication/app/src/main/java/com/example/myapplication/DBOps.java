@@ -4,10 +4,10 @@ import java.lang.annotation.ElementType;
 import java.util.ArrayList;
 
 public interface DBOps {
-    public abstract void addElements(Object n);
+    public void addElements(Object n);
 
-    public abstract ArrayList<Object> getElements();
+    public ArrayList<Object> getElements();
 
-    public abstract void modificarElemento(Object n);
+    public void modificarElemento(Object n);
 
 }

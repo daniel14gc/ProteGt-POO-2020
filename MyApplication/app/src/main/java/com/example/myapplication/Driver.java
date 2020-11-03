@@ -78,11 +78,19 @@ public class Driver {
         }
         AlPe.setUsers(temp);
         Persona pTemp = AlPe.buscar(us,pw);
-        if(temp != null){
+        if(pTemp != null){
             persona = pTemp;
             return true;
         }
         return false;
+    }
+
+    public static Double[] localizacion(Long id){
+        Publicacion temp = Almpost.obtener(id);
+        Double[] res = new Double[2];
+        res[0] = temp.getLatitude();
+        res[1] = temp.getLongitude();
+        return res;
     }
 
     public static void size(){

@@ -37,7 +37,7 @@ import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 
-public class Map extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerDragListener {
+public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap gMap;
     private LatLng latLng;
@@ -106,7 +106,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
         );
         setMarkers();
-        gMap.setOnMarkerDragListener(this);
+        obtenerIntent();
     }
 
     @Override
@@ -118,21 +118,6 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
                 }
                 break;
         }
-    }
-
-    @Override
-    public void onMarkerDragStart(Marker marker) {
-
-    }
-
-    @Override
-    public void onMarkerDrag(Marker marker) {
-
-    }
-
-    @Override
-    public void onMarkerDragEnd(Marker marker) {
-        System.out.println(marker.getPosition().latitude);
     }
 
     // Metodo para retornar a homes
@@ -165,6 +150,16 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback, Google
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 );
             }
+        }
+    }
+
+    public void obtenerIntent(){
+        Intent intent = getIntent();
+        if(intent.getExtras() != null){
+            Long id = Long.parseLong(intent.getStringExtra("id"));
+            Double[] localizacion = Driver.localizacion(id);
+            latLng = new LatLng(localizacion[0], localizacion[1]);
+            gMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
         }
     }
 }

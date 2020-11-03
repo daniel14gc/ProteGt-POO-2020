@@ -57,6 +57,7 @@ public class PostsDatabase extends Database {
                     Double latitude = snapshot.child(index).child("latitude").getValue(Double.class);
                     Double longitude = snapshot.child(index).child("longitude").getValue(Double.class);
                     Publicacion p = new Publicacion(user,location,type,description, latitude, longitude);
+                    p.setId(i+1);
                     temp.add(p);
                 }
                 elementos = temp;
@@ -68,29 +69,8 @@ public class PostsDatabase extends Database {
             }
         });
 
-        Collections.reverse(elementos);
-
         //Se devuelven los posts en un arraylist.
         return elementos;
-    }
-
-    //Método que permite obtener el tamaño de la base de datos, lo que servirá como ID para un nuevo post.
-    public long getSize(){
-        reference.addListenerForSingleValueEvent(
-                new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //Get map of users in datasnapshot
-                        Size = dataSnapshot.getChildrenCount();
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-        return Size;
     }
 
     @Override
