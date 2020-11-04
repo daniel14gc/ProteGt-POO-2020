@@ -139,6 +139,7 @@ public class Publica extends AppCompatActivity {
 
     }
 
+    //obtiene la ubicacion que el usuario seleccione
     public void obtenerIntent(){
         Intent intent = getIntent();
         if(intent.getExtras()!= null){
@@ -149,6 +150,7 @@ public class Publica extends AppCompatActivity {
         }
     }
 
+    //permite al usurio seleccionar una ubicacion en el mapa
     public void ubica(){
         ubicar = findViewById(R.id.ubicacion);
         ubicar.setOnClickListener(new View.OnClickListener(){
@@ -160,6 +162,7 @@ public class Publica extends AppCompatActivity {
         });
     }
 
+    //selecciona automaticamente la ubicacion
     public void ubicacion(){
         Places.initialize(getApplicationContext(), "AIzaSyAJ-cQGbCZxm_Uax6PGbFE6EyOJetOqz6M");
         donde.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +177,7 @@ public class Publica extends AppCompatActivity {
         });
     }
 
+    //obtiene la ubicacion del usuario
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

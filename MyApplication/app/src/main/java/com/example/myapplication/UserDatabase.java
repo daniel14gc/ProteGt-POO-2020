@@ -47,6 +47,7 @@ public class UserDatabase extends Database {
         reference.child(p.getUser()).setValue(p);
     }
 
+    //devuelve los elementos que se encuentran en la base de datos de los usuarios
     public ArrayList<Object> getElements(){
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

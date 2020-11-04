@@ -72,10 +72,12 @@ public class Publicacion {
         this.id = id;
     }
 
+    //obtiene la latitud de la ubicacion
     public double getLatitude() {
         return latitude;
     }
 
+    //obtiene la longitude de la ubicacion
     public double getLongitude() {
         return longitude;
     }

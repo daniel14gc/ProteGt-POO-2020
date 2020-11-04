@@ -72,6 +72,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     }
 
+    //obtiene la ultima locacion del usuario
     public void fetchLastLocation(){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]
@@ -109,6 +110,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         obtenerIntent();
     }
 
+    //solicita permisos para poder acceder a la ubicacion del usuario
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode){
@@ -126,6 +128,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         startActivity(intent);
     }
 
+    //pone los marcadores que se muestran en el mapa
     public void setMarkers(){
         ArrayList<Publicacion> publicaciones = Driver.getPosts();
         for(int i = 0; i<publicaciones.size(); i++){
@@ -153,6 +156,7 @@ public class Map extends AppCompatActivity implements OnMapReadyCallback {
         }
     }
 
+    //obtiene la ubicacion de una publicacion
     public void obtenerIntent(){
         Intent intent = getIntent();
         if(intent.getExtras() != null){
