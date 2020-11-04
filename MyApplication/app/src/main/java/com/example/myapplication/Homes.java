@@ -43,6 +43,7 @@ public class Homes extends AppCompatActivity {
 
     private RecyclerView recycler;
 
+    //Partes de la vida del activity.
     private ImageView newpost;
     private ImageView mini;
     private ImageView mapa;
@@ -55,7 +56,6 @@ public class Homes extends AppCompatActivity {
     private TextView infe;
 
 
-    //Partes de la vida del activity.
 
     //OnResume para el momento en el cual la activity no ha muerto, sino que quedó en pausa.
     @Override
@@ -109,6 +109,7 @@ public class Homes extends AppCompatActivity {
 
     }
 
+    // Este metodo recibe un arraylist con publicaciones de tipo anomalia y las muestra pantalla
     public void filtroAnomalia(View view) {
 
         ListaDatos=Driver.getPosts(0);
@@ -121,6 +122,7 @@ public class Homes extends AppCompatActivity {
         todos.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
     }
 
+    // Este metodo recibe TODAS las publicaciones para mostrarlas sin filtros.
     public void filtroTodos(View view) {
         ListaDatos = Driver.getPosts();
         AdapterDatos adapter = new AdapterDatos(ListaDatos);
@@ -132,6 +134,7 @@ public class Homes extends AppCompatActivity {
         anoma.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
     }
 
+    // Este metodo recibe un arraylist con publicaciones de tipo anomalia y la muestra en pantalla
     public void filtroInfectados(View view) {
 
         ListaDatos=Driver.getPosts(-1);

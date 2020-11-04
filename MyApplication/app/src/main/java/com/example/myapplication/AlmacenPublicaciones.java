@@ -36,6 +36,8 @@ public class AlmacenPublicaciones implements filtro {
 
     }
 
+
+    // Este metodo filtra las publicaciones de acuerdo si es de tipo infectados.
     public ArrayList<Publicacion> filtro1()
     {
         ArrayList<Publicacion> temp= new ArrayList<>();
@@ -49,6 +51,8 @@ public class AlmacenPublicaciones implements filtro {
         }
         return temp;
     }
+
+    // Este metodo filtra las publicaciones de acuerdo si NO es de tipo infectados.
     public ArrayList<Publicacion> filtro2()
     {
         ArrayList<Publicacion> temp= new ArrayList<>();
@@ -62,6 +66,7 @@ public class AlmacenPublicaciones implements filtro {
         return temp;
     }
 
+    // Este metodo devuelve una publicacion segun el id de la misma.
     public Publicacion obtener(Long id){
         for(int i = 0; i<posts.size(); i++){
             Publicacion temp = posts.get(i);
