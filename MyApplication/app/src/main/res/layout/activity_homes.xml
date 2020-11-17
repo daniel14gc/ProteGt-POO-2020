@@ -183,17 +183,19 @@
             android:id="@+id/Anomalia"
             android:layout_width="134dp"
             android:layout_height="37dp"
-            android:background="@drawable/cosita2"
+            android:background="@drawable/button1"
             android:onClick="filtroAnomalia"
-            android:text="            Anomalía" />
+            android:text="            Anomalía"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/Infectados"
             android:layout_width="134dp"
             android:layout_height="37dp"
-            android:background="@drawable/cosita2"
+            android:background="@drawable/button1"
             android:onClick="filtroInfectados"
-            android:text="          Infectados" />
+            android:text="          Infectados"
+            android:textColor="#FFFFFF" />
 
         <TextView
             android:id="@+id/optodos"
@@ -201,7 +203,8 @@
             android:layout_height="37dp"
             android:background="@drawable/cosaita1"
             android:onClick="filtroTodos"
-            android:text="             Todos" />
+            android:text="             Todos"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 

@@ -118,8 +118,8 @@ public class Homes extends AppCompatActivity {
         recycler.setAdapter(adapter);
         recycler.scrollToPosition(ListaDatos.size()-1);
         anoma.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
-        infe.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
-        todos.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
+        infe.setBackground(this.getResources().getDrawable(R.drawable.button1));
+        todos.setBackground(this.getResources().getDrawable(R.drawable.button1));
     }
 
     // Este metodo recibe TODAS las publicaciones para mostrarlas sin filtros.
@@ -130,8 +130,8 @@ public class Homes extends AppCompatActivity {
         recycler.scrollToPosition(0);
 
         todos.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
-        infe.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
-        anoma.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
+        infe.setBackground(this.getResources().getDrawable(R.drawable.button1));
+        anoma.setBackground(this.getResources().getDrawable(R.drawable.button1));
     }
 
     // Este metodo recibe un arraylist con publicaciones de tipo anomalia y la muestra en pantalla
@@ -144,8 +144,8 @@ public class Homes extends AppCompatActivity {
         recycler.scrollToPosition(ListaDatos.size()-1);
 
         infe.setBackground(this.getResources().getDrawable(R.drawable.cosaita1));
-        anoma.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
-        todos.setBackground(this.getResources().getDrawable(R.drawable.cosita2));
+        anoma.setBackground(this.getResources().getDrawable(R.drawable.button1));
+        todos.setBackground(this.getResources().getDrawable(R.drawable.button1));
     }
 
     public void vistaPublicaciones(){
